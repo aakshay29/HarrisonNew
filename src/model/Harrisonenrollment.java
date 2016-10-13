@@ -32,9 +32,16 @@ public class Harrisonenrollment implements Serializable {
 	@JoinColumn(name="STUDENTID")
 	private Harrisonstudent harrisonstudent;
 
+	public Harrisonenrollment(Harrisonstudent harrisonstudent,Harrisonclass harrisonclass, BigDecimal status, String grade) {
+		this.harrisonstudent = harrisonstudent;
+		this.harrisonclass = harrisonclass;
+		this.status = status;
+		this.grade = grade;
+	}
+	
 	public Harrisonenrollment() {
 	}
-
+	
 	public long getEnrollmentid() {
 		return this.enrollmentid;
 	}

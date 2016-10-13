@@ -27,6 +27,9 @@ public class Harrisonuser implements Serializable {
 
 	@Column(name="\"ROLE\"")
 	private BigDecimal role;
+	
+		
+	
 
 	//bi-directional many-to-one association to Harrisoninstructor
 	@OneToMany(mappedBy="harrisonuser")
@@ -37,6 +40,16 @@ public class Harrisonuser implements Serializable {
 	private List<Harrisonstudent> harrisonstudents;
 
 	public Harrisonuser() {
+	}
+	
+	public Harrisonuser( String email, String name, String password, BigDecimal role) {
+		this.email=email;
+
+		this.name=name;
+
+		this.password=password;
+
+		this.role=role;
 	}
 
 	public long getUserid() {

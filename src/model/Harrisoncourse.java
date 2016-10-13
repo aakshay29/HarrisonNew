@@ -5,18 +5,17 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-
 /**
  * The persistent class for the HARRISONCOURSE database table.
  * 
  */
 @Entity
-@NamedQuery(name="Harrisoncourse.findAll", query="SELECT h FROM Harrisoncourse h")
+@NamedQuery(name = "Harrisoncourse.findAll", query = "SELECT h FROM Harrisoncourse h")
 public class Harrisoncourse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long courseid;
 
 	private BigDecimal available;
@@ -29,11 +28,24 @@ public class Harrisoncourse implements Serializable {
 
 	private BigDecimal subjectcode;
 
-	//bi-directional many-to-one association to Harrisonclass
-	@OneToMany(mappedBy="harrisoncourse")
+	// bi-directional many-to-one association to Harrisonclass
+	@OneToMany(mappedBy = "harrisoncourse")
 	private List<Harrisonclass> harrisonclasses;
 
 	public Harrisoncourse() {
+	}
+
+	public Harrisoncourse(BigDecimal subjectcode, String coursename, String coursedescription,
+			BigDecimal numberofcredits, BigDecimal available) {
+		this.available = available;
+
+		this.coursedescription = coursedescription;
+
+		this.coursename = coursename;
+
+		this.numberofcredits = numberofcredits;
+
+		this.subjectcode = subjectcode;
 	}
 
 	public long getCourseid() {
