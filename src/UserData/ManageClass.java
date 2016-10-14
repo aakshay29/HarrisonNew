@@ -154,7 +154,7 @@ public class ManageClass {
 
 	public static List<Harrisonclass> classes(String semester, BigDecimal status) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonclass u where  harrisoninstructor = :harrisoninstructor and semester = :semester";
+		String qString = "Select u from Harrisonclass u where  status = :status and semester = :semester";
 		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
 		q.setParameter("semester", semester);
 		q.setParameter("status", status);
