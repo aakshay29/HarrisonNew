@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import UserData.ManageEnrollment;
 import model.Harrisonclass;
 import model.Harrisonenrollment;
+import model.Harrisonstudent;
 import model.Harrisonuser;
 
 /**
@@ -43,7 +45,8 @@ public class HomeServlet extends HttpServlet {
 			session.setAttribute("classList", classList);	
 		}
 		else{
-			enrollmentList = ManageEnrollment.enrollmentByStudent(int student);
+			Harrisonstudent student = ManageStudent.
+			enrollmentList = ManageEnrollment.enrollmentByStudent(harrisonstudent);
 			session.setAttribute("enrollmentList", enrollmentList);
 		}
 		
