@@ -1,6 +1,9 @@
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import UserData.ManageCourse;
+import UserData.ManageInstructor;
+import UserData.ManageStudent;
+import UserData.ManageUser;
 import model.Harrisonuser;
 import model.Harrisoncourse;
+import model.Harrisoninstructor;
+import model.Harrisonstudent;
 
 /**
  * Servlet implementation class LoginServlet
@@ -44,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 		
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
-		Harrisonuser user=DBManageUser.isValidUser(email,password);
+		Harrisonuser user=ManageUser.isValidUser(email,password);
 		
 		if(user !=null){
 			System.out.println("The user is valid");
@@ -52,15 +61,19 @@ public class LoginServlet extends HttpServlet {
 			float role =user.getRole();
 			
 			if(role==3){
-			List <Harrisoncourse> courses=DBManageCourse.ListCourses();
+			List <Harrisoncourse> courses=ManageCourse.courses();
 			session.setAttribute("courses", courses);
 			nextURL="/Admin.jsp";
 				
 			}
 			else if (role ==2){
+			Harrisoninstructor inst=ManageInstructor.getInstructor(user);
+			session.setAttribute("inst", inst);
 			nextURL="/InstructorView.jsp";
 			}
 			else if (role ==1){
+				Harrisonstudent stud=ManageStudent.getStudent(user);
+				session.setAttribute("stud", stud);
 				nextURL="/HomeStudent.jsp";
 				}
 		}
