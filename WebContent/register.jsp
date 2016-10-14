@@ -85,6 +85,7 @@ function checkUser() {
        
        
                <br><br><br>
+                
                 <div id="name" class="form-group" style="visibility:hidden" >
                     <input type="text"  class="required form-control" placeholder="Name *" name="name" id="name" value="">
                 </div>

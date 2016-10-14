@@ -8,33 +8,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script>
+<script>	
 function transcript() {
-  	
-       	document.getElementById('option').style.visibility = 'visible'    
-    } 
 
-	function checkOption() 
-	{
-		if (document.getElementById('emailoption').checked) {
-			document.getElementById('email').style.visibility = 'visible'
-			document.getElementById('address').style.visibility = 'hidden'
-			$('#send').show();
-
-		}
-		else if (document.getElementById('physicaloption').checked){
-			document.getElementById('address').style.visibility = 'visible'
-			document.getElementById('email').style.visibility = 'hidden'
-			$('#send').show();
-
-		}
+		document.getElementById('email').style.visibility = 'visible'
+		document.getElementById('address').style.visibility = 'visible'
+		$('#send').show();
 	}
 </script>
 </head>
 <body>
 <jsp:include page="Header.jsp"></jsp:include> 
  
- 
+
  <!-- banner -->
   <div class="courses_banner">
   	<div class="container">
@@ -45,7 +31,8 @@ function transcript() {
 			%>	
 				 		
   		<p class="description">
-        Welcome <%= user.getName()%>
+        Welcome <%= user.getName()%> 
+        View current classes, drop classes or view and buy transcripts
         </p>
         <div class="breadcrumb1">
             <ul>
@@ -57,41 +44,43 @@ function transcript() {
   </div>
     <!-- //banner -->
  
- 
+  
+   <form action ="HomeServlet" method="post">
  
  	<c:forEach var="enrollmentlist" items="${enrollmentlist}">
     <table>
     <tr>
 
-	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.name}"/><td>
-	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/><td>
-	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/><td>
-	<td><c:out value="${enrollmentlist.status}"/><td>
-	<td><c:out value="${enrollmentlist.grade}"/><td>
-	 </td>
+	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.name}"/></td>
+	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/></td>
+	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/></td>
+	<td><c:out value="${enrollmentlist.status}"/></td>
+	<td><c:out value="${enrollmentlist.grade}"/></td>
+	 <td><input type="submit" value="Drop" id="drop" name="drop"/> </td>
 	 </tr>
 	 </table>
 	</c:forEach> 
+			
+	</form>
 	
-	<div>
-	<input type="submit" value="Buy A Transcript" id="transcript" name="transcript" onclick="javascript:transcript();"/>
-	</div>
 	
-	<div id="options" style="visibility:hidden" >
-	 Email <input type="radio" onclick="javascript:checkOption();" name="check" id="emailoption"/>
-     Physical Copy <input type="radio" onclick="javascript:checkOption();" name="check" id="physicaloption"/>
-	</div>
 	
+	 <!-- //Buying transcripts -->
+	
+	 <div>
+	 <input type="submit" value="Buy A Transcript" id="transcript" name="transcript" onclick="javascript:transcript();"/>
+	 </div>
+	
+		
 	 <div id="email" class="form-group" style="visibility:hidden">
      <input type="text"  class="required form-control" placeholder="Email *" name="email" id="email" value="">
      </div>
 	
-	<div id="address" class="form-group" style="visibility:hidden">
+	 <div id="address" class="form-group" style="visibility:hidden">
      <input type="text"  class="required form-control" placeholder="address *" name=address id="address" value="">
      </div>
-	 <button id="send" type="submit" value="Submit" style="display: none;">
-				Register
-		  		</button>
+	 
+	 <button id="send" type="submit" value="Submit" style="display: none;"> Register </button>
 	
  <jsp:include page="Footer.jsp"></jsp:include>
 </body>

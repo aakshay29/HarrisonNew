@@ -53,23 +53,17 @@ $(document).ready(function(){
 	    <!--/.navbar-header-->
 	    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
 	        <ul class="nav navbar-nav">
-		        <li class="dropdown">
-		            <a href="Login.jsp"><i class="fa fa-user"></i><span>Login</span></a>
-		        </li>
-		        <li class="dropdown">
-		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i><span>Courses</span></a>
-		        	  <ul class="dropdown-menu">
-			            <li><a href="courses.html">Courses Categories</a></li>
-			            <li><a href="courses.html">Courses list</a></li>
-			            <li><a href="course_detail.html">Courses detail</a></li>
-		              </ul>
-		        </li>
+		     
+		     <c:if test="${user==null}">
+		        <li class="dropdown"> <a href="Login.jsp"><i class="fa fa-user"></i><span>Login</span></a> </li>
+		         <li class="dropdown"> <a href="register.jsp"><i class="fa fa-user"></i><span>Register</span></a> </li>
+		        </c:if>
 		    
 		     
 		        <li class="dropdown">
 		            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i><span>Search</span></a>
 		            <ul class="dropdown-menu search-form">
-			           <form>        
+			               
                             <input type="text" class="search-text" name="s" placeholder="Search...">    
                             <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
                        </form>
@@ -101,30 +95,23 @@ $(document).ready(function(){
         <ul class="nav navbar-nav nav_1">
         
             <li><a href="Home.jsp">Home</a></li>
-       
-      		<li><a href="enrol.jsp" >Enrollment</a>	</li>
-			  <li><a href="enrol.jsp?action=delete" >Drop</a>	</li>
-						 
-            <li><a href="schedule.jsp">Schedule</a></li>
-            <li><a href="transcript.jsp">Features</a></li>
-         <li><a href="courses">Courses</a></li>
-            <li><a href="currentsem.jsp">Classes in current classes</a></li>
-            <li class="last"><a href="contact.html">Contacts</a></li>
+       		<li><a href=CourseStudent.jsp>Courses</a></li>
+    
+            </ul>
+            
   		</c:if>
 
 			<c:if test="${user!=null}">
 				<c:if test="${user.role == 3}">
-					<li><a href="enrol.jsp">Enrollment</a></li>
-					<li><a href="enrol.jsp?action=delete">Drop</a></li>
+					<li><a href="CourseStudent.jsp">Enrollment</a></li>
+					<li><a href="HomeStudent.jsp">Drop</a></li>
 
-					<li><a href="schedule.jsp">Schedule</a></li>
-					<li><a href="transcript.jsp">Features</a></li>
-					<li><a href="courses">Courses</a></li>
-					<li><a href="currentsem.jsp">Classes in current classes</a></li>
-					<li class="last"><a href="contact.html">Contacts</a></li>
+					<li><a href="HomeStudent.jsp">Schedule</a></li>
+					<li><a href="Home.jsp">All Courses</a></li>
+					<li><a href="HomeStudent.jsp">Classes in current classes</a></li>
+				
 				</c:if>
-
-
+				
 				<c:if test="${user.role == 2}">
 					<li><a href="roster.jsp">Roster</a></li>
 					<li><a href="grades.jsp">Assign Grades</a></li>
