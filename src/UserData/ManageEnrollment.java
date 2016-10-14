@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 
 import model.Harrisonclass;
 import model.Harrisonenrollment;
+import model.Harrisoninstructor;
 import model.Harrisonstudent;
 
 
@@ -99,5 +100,23 @@ public class ManageEnrollment {
 //
 //	}
 
+	
+	public static List<Harrisonenrollment> enrollmentByInstructor(Harrisoninstructor harrisoninstructor, String semester) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select e from Harrisonenrollment e where e.harrisonclass in (select c from Harrisonclass c where c.harrisoninstructor = :harrisoninstructor and c.semester = :semester)";
+		TypedQuery<Harrisonenrollment> q = em.createQuery(qString, Harrisonenrollment.class);
+		q.setParameter("harrisoninstructor", harrisoninstructor);
+		q.setParameter("semester", semester);
+		List<Harrisonenrollment> enrollments = null;
+		try {
+			enrollments = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return enrollments;
+
+	}
 
 }
