@@ -27,11 +27,7 @@
     <!-- //banner -->
 
 
-
-
-
-
-<div class="courses_box1">
+	<div class="courses_box1">
 	   <div class="container">
 	   	  <form class="login"  action ="LoginServlet" method="post">
 	    	<p class="lead">Welcome Back!</p>
