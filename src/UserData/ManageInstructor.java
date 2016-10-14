@@ -35,12 +35,12 @@ public class ManageInstructor {
 
 	}
 
-	public static void addStudent(Harrisoninstructor student) {
+	public static void addInstructor(Harrisoninstructor instructor) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		try {
 			trans.begin();
-			em.persist(student);
+			em.persist(instructor);
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
