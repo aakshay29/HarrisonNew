@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import UserData.ManageEnrollment;
+import UserData.ManageInstructor;
+import UserData.ManageStudent;
 import model.Harrisonclass;
 import model.Harrisonenrollment;
+import model.Harrisoninstructor;
 import model.Harrisonstudent;
 import model.Harrisonuser;
 
@@ -40,16 +43,14 @@ public class HomeServlet extends HttpServlet {
 		user = (Harrisonuser) session.getAttribute("user");
 		List <Harrisonclass> classList = null;
 		List <Harrisonenrollment> enrollmentList = null;
-		if(user.getName() == null){
-			classList = ManageClass.classes();
-			session.setAttribute("classList", classList);	
+
+		List<Harrisonstudent> harrisonstudents;
+		Harrisoninstructor harrisoninstructor = ManageInstructor.getInstructor(205);
+		harrisonstudents = ManageStudent.students(harrisoninstructor, "Spring2016");
+		for(Harrisonstudent harrisonstudent:harrisonstudents){
+			System.out.println(harrisonstudent.getStudentid());
 		}
-		else{
-			Harrisonstudent student = ManageStudent.
-			enrollmentList = ManageEnrollment.enrollmentByStudent(harrisonstudent);
-			session.setAttribute("enrollmentList", enrollmentList);
-		}
-		
+	
 	}
 
 	/**

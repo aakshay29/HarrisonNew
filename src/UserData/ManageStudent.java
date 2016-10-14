@@ -113,4 +113,22 @@ public class ManageStudent {
 		return students;
 
 	}
+
+	public static List<Harrisonstudent> students(Harrisoninstructor harrisoninstructor, String semester) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select e.harrisonstudent from Harrisonenrollment e where e.harrisonclass in (select c from Harrisonclass c where c.harrisoninstructor = :harrisoninstructor and c.semester = :semester)";
+		TypedQuery<Harrisonstudent> q = em.createQuery(qString, Harrisonstudent.class);
+		q.setParameter("harrisoninstructor", harrisoninstructor);
+		q.setParameter("semester", semester);
+		List<Harrisonstudent> students = null;
+		try {
+			students = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return students;
+
+	}
 }

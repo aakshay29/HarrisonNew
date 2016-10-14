@@ -81,23 +81,23 @@ public class ManageEnrollment {
 			em.close();
 		}
 	}
-
-	public static List<Harrisonenrollment> enrollmentByStudent(Harrisonstudent harrisonstudent) {
-		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonenrollment u " + "where u.harrisonstudent = :harrisonstudent";
-		TypedQuery<Harrisonenrollment> q = em.createQuery(qString, Harrisonenrollment.class);
-		q.setParameter("harrisonstudent", harrisonstudent);
-		List<Harrisonenrollment> enrollments = null;
-		try {
-			enrollments = q.getResultList();
-		} catch (NoResultException e) {
-			System.out.println(e);
-		} finally {
-			em.close();
-		}
-		return enrollments;
-
-	}
+//
+//	public static List<Harrisonenrollment> enrollmentByStudent(Harrisonstudent harrisonstudent) {
+//		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+//		String qString = "Select u from Harrisonenrollment u " + "where u.harrisonstudent = :harrisonstudent";
+//		TypedQuery<Harrisonenrollment> q = em.createQuery(qString, Harrisonenrollment.class);
+//		q.setParameter("harrisonstudent", harrisonstudent);
+//		List<Harrisonenrollment> enrollments = null;
+//		try {
+//			enrollments = q.getResultList();
+//		} catch (NoResultException e) {
+//			System.out.println(e);
+//		} finally {
+//			em.close();
+//		}
+//		return enrollments;
+//
+//	}
 
 
 }
