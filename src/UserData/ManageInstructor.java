@@ -12,10 +12,10 @@ import model.Harrisonuser;
 
 public class ManageInstructor {
 
-	public static Harrisoninstructor getInstructor(long studentid) {
+	public static Harrisoninstructor getInstructor(long instructorid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		Harrisoninstructor student = em.find(Harrisoninstructor.class, studentid);
-		return student;
+		Harrisoninstructor instructor = em.find(Harrisoninstructor.class, instructorid);
+		return instructor;
 	}
 	
 	public static Harrisoninstructor getInstructor(Harrisonuser harrisonuser) {

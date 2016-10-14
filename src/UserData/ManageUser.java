@@ -97,7 +97,7 @@ public class ManageUser {
 
 	public static Harrisonuser isValidUser(String email, String password) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select b from Harrisonuser b " + "where b.useremail = :email and b.password = :pass";
+		String qString = "Select b from Harrisonuser b " + "where b.email = :email and b.password = :pass";
 		TypedQuery<Harrisonuser> q = em.createQuery(qString, Harrisonuser.class);
 		Harrisonuser user = null;
 		q.setParameter("email", email);
