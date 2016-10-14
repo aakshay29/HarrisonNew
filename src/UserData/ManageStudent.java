@@ -13,7 +13,7 @@ import model.Harrisonuser;
 
 public class ManageStudent {
 
-	public static Harrisonstudent getUser(long studentid) {
+	public static Harrisonstudent getStudent(long studentid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		Harrisonstudent student = em.find(Harrisonstudent.class, studentid);
 		return student;
