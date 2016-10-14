@@ -10,7 +10,7 @@ import UserData.ManageStudent;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
 
-public class DbTest {
+public class DbTestStudent {
 
 	@Test
 	public void test() {

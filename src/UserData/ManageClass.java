@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 import model.Harrisonclass;
 import model.Harrisoncourse;
 import model.Harrisoninstructor;
+import model.Harrisonstudent;
 
 public class ManageClass {
 
@@ -85,7 +86,7 @@ public class ManageClass {
 
 	public static List<Harrisonclass> classes() {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonclass u ";
+		String qString = "Select u from Harrisonclass u";
 		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
 		// q.setParameter("email", email);
 		List<Harrisonclass> classes = null;
@@ -102,7 +103,7 @@ public class ManageClass {
 
 	public static List<Harrisonclass> classes(String semester) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonclass u where  semester = :semester";
+		String qString = "Select u from Harrisonclass u where  u.semester = :semester";
 		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
 		q.setParameter("semester", semester);
 		List<Harrisonclass> classes = null;
@@ -119,7 +120,7 @@ public class ManageClass {
 
 	public static List<Harrisonclass> classes(Harrisoninstructor harrisoninstructor) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonclass u where  harrisoninstructor = :harrisoninstructor";
+		String qString = "Select u from Harrisonclass u where  u.harrisoninstructor = :harrisoninstructor";
 		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
 		q.setParameter("harrisoninstructor", harrisoninstructor);
 		List<Harrisonclass> classes = null;
@@ -136,7 +137,7 @@ public class ManageClass {
 
 	public static List<Harrisonclass> classes(Harrisoninstructor harrisoninstructor, String semester) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonclass u where  harrisoninstructor = :harrisoninstructor and semester = :semester";
+		String qString = "Select u from Harrisonclass u where  u.harrisoninstructor = :harrisoninstructor and u.semester = :semester";
 		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
 		q.setParameter("harrisoninstructor", harrisoninstructor);
 		q.setParameter("semester", semester);
@@ -154,10 +155,27 @@ public class ManageClass {
 
 	public static List<Harrisonclass> classes(String semester, BigDecimal status) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonclass u where  status = :status and semester = :semester";
+		String qString = "Select u from Harrisonclass u where  u.status = :status and u.semester = :semester";
 		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
 		q.setParameter("semester", semester);
 		q.setParameter("status", status);
+		List<Harrisonclass> classes = null;
+		try {
+			classes = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return classes;
+
+	}
+	
+	public static List<Harrisonclass> classes(Harrisonstudent harrisonstudent) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select e.harrisonclass from Harrisonenrollment e where e.harrisonstudent = :harrisonstudent";
+		TypedQuery<Harrisonclass> q = em.createQuery(qString, Harrisonclass.class);
+		q.setParameter("harrisonstudent", harrisonstudent);
 		List<Harrisonclass> classes = null;
 		try {
 			classes = q.getResultList();
