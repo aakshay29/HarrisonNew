@@ -16,12 +16,14 @@ import UserData.ManageCourse;
 import UserData.ManageEnrollment;
 import UserData.ManageInstructor;
 import UserData.ManageStudent;
+import customTools.DBSamazonProduct;
 import model.Harrisonclass;
 import model.Harrisoncourse;
 import model.Harrisonenrollment;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
 import model.Harrisonuser;
+import model.Samazonproduct;
 
 /**
  * Servlet implementation class HomeServlet
@@ -41,45 +43,16 @@ public class HomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		Harrisonuser user = null;
-//		HttpSession session = request.getSession();	
-//		
-//		user = (Harrisonuser) session.getAttribute("user");
-//		List <Harrisonclass> classList = null;
-//		List <Harrisonenrollment> enrollmentList = null;
-//		String nextURL = "";
-//
-//		List<Harrisonstudent> harrisonstudents;
-//		Harrisoninstructor harrisoninstructor = ManageInstructor.getInstructor(205);
-//		harrisonstudents = ManageStudent.students(harrisoninstructor, "Spring2016");
-//		for(Harrisonstudent harrisonstudent:harrisonstudents){
-//			System.out.println(harrisonstudent.getStudentid());		
-//		}
-//		
-//		BigDecimal one = new BigDecimal(1);
-//		BigDecimal two = new BigDecimal(2);
-//		BigDecimal three = new BigDecimal(3);
-//		if(user.getRole() == one){
-//			nextURL="/Login.jsp";
-//		}
-//		else if(user.getRole() == two){
-//			nextURL="/Login.jsp";
-//		}
-//		else if(user.getRole() == three){
-//			Harrisonstudent student = ManageStudent.getStudent(user.getUserid());
-//			enrollmentList = student.getHarrisonenrollments();
-//			session.setAttribute("enrollmentlist", enrollmentList);
-//			request.getSession().setAttribute("enrollmentlist", enrollmentList);
-//			nextURL="/HomeStudent.jsp";
-//		}
-//		else{
-//			classList = ManageClass.classes();
-//			session.setAttribute("classList", classList);
-//			nextURL="/Login.jsp";
-//		}
-//		response.sendRedirect(request.getContextPath() + nextURL);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String nextURL;
+		String action = request.getParameter("action");	
+		if(action.equalsIgnoreCase("drop")){
+			int enID = Integer.parseInt(request.getParameter("enrollmentid"));	
+			Harrisonenrollment enrollment = ManageEnrollment.getRntollmenr(enID);
+			ManageEnrollment.delete(enrollment);
+			nextURL = "/AdminEdit.jsp";
+		}
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 	/**

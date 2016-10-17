@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String nextURL="";
 		List <Harrisonclass> classList = null;
-		List <Harrisonenrollment> enrollmentList = null;
+		List <Harrisonenrollment> enrollmentlist = null;
 		
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
@@ -80,9 +80,9 @@ public class LoginServlet extends HttpServlet {
 			else if(role == 3){
 				System.out.println("three");
 				Harrisonstudent student = ManageStudent.getStudentFromUserid(user);
-				enrollmentList = student.getHarrisonenrollments();
-				session.setAttribute("enrollmentList", enrollmentList);
-				System.out.println(enrollmentList.get(0).getClass().getName().toString());
+				enrollmentlist = student.getHarrisonenrollments();
+				session.setAttribute("enrollmentlist", enrollmentlist);
+				System.out.println(enrollmentlist.get(0).getClass().getName().toString());
 				//request.getSession().setAttribute("enrollmentList", enrollmentList);
 				nextURL="/HomeStudent.jsp";
 			}

@@ -43,39 +43,25 @@ function transcript() {
   	</div>
   </div>
     <!-- //banner -->
-      <form action ="HomeServlet" method="post">
-
- 	<div class="form-group"> 
- 	<table class="table table-bordered table-striped table-hover">
- 	<thead>
-						<tr>
-							<th>ID</th>
-							<th>Name</th>
-							<th>Description</th>
-							<th>Price</th>
-							<th>Image</th>
-							<th>Seller</th>
-							<th>Category</th>
-						</tr>
-					</thead>
-					<tbody>
- 	<c:forEach var="enrollmentList" items="${enrollmentList}">    
+ 
+  
+   <form action ="HomeServlet" method="post">
+ 
+ 	<c:forEach var="enrollmentlist" items="${enrollmentlist}">
+    <table>
     <tr>
-	<td><c:out value="${enrollmentList.harrisonclass.harrisoncourse.coursename}   "/></td>
-	<td><c:out value="${enrollmentList.harrisonclass.classroom}   "/></td>
-	<td><c:out value="${enrollmentList.harrisonclass.schedule}   "/></td>
-	<td><c:out value="${enrollmentList.status}  "/></td>
-	<td><c:out value="${enrollmentList.grade}  "/></td>
+
+	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.name}"/></td>
+	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/></td>
+	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/></td>
+	<td><c:out value="${enrollmentlist.status}"/></td>
+	<td><c:out value="${enrollmentlist.grade}"/></td>
 	 <td><input type="submit" value="Drop" id="drop" name="drop"/> </td>
 	 </tr>
+	 </table>
 	</c:forEach> 
-	</tbody>
-  </table>
-  </div>
- 
- 
 			
-	</form> 
+	</form>
 	
 	
 	
