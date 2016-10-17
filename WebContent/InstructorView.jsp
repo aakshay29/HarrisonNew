@@ -32,11 +32,11 @@
 			<thead>
 				<tr>
 					<b>
-						<th>Class No.</th>
-						<th>Classroom</th>
-						<th>Semester</th>
-						<th>Course Name</th>
-						<th>Status</th>
+						<th> Class No. </th>
+						<th> Classroom </th>
+						<th>  Semester </th>
+						<th> CourseName </th>
+						<th> Status </th>
 					</b>
 				</tr>
 			</thead>
@@ -46,7 +46,7 @@
 					<td><c:out value="${lecture.classroom}" /></td>
 					<td><c:out value="${lecture.semester}" /></td>
 					<td><c:out value="${lecture.harrisoncourse.coursename}" /></td>
-					<td><c:out value="${lecture.harrisoncourse.status}" /></td>
+					<td><c:out value="${lecture.status}" /></td>
 				</tr>
 			</tbody>
 		</table>
