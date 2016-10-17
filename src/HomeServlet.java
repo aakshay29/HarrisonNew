@@ -42,26 +42,26 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String nextURL = "";
 		HttpSession session = request.getSession();
-		String action = request.getParameter("action");	
-		if(action.equalsIgnoreCase("drop")){
-			int enID = Integer.parseInt(request.getParameter("enrollmentid"));	
-			Harrisonenrollment enrollment = ManageEnrollment.getEnrollment(enID);
-			ManageEnrollment.delete(enrollment);
-			Harrisonstudent student = (Harrisonstudent) session.getAttribute("student");
-			List <Harrisonenrollment> enrollmentlist = student.getHarrisonenrollments();
-			session.setAttribute("enrollmentlist", enrollmentlist);
-			nextURL = "/HomeStudent.jsp";
-		}
-		response.sendRedirect(request.getContextPath() + nextURL);
+		Harrisonstudent student = (Harrisonstudent) session.getAttribute("student");
+		List <Harrisonenrollment> enrollmentlist = student.getHarrisonenrollments();
+		session.setAttribute("enrollmentlist", enrollmentlist);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String nextURL = "";
+		String action = request.getParameter("action");	
+		if(action.equalsIgnoreCase("drop")){
+			System.out.println("Hello......");
+			int enID = Integer.parseInt(request.getParameter("enrollmentid"));	
+			Harrisonenrollment enrollment = ManageEnrollment.getEnrollment(enID);
+			ManageEnrollment.delete(enrollment);		
+			nextURL = "/HomeStudent.jsp";
+		}
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 }
