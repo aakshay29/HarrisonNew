@@ -49,17 +49,19 @@ function transcript() {
         <thead>
         <tr><th>Course Name</th><th>Classroom</th><th>Schedule</th><th>Status</th><th>Grade</th></tr>
     </thead>
+
+    <tr>
+
    
  
  	<c:forEach var="enrollmentlist" items="${enrollmentlist}"> <tr>
-
 	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.coursename}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/></td>
 	<td><c:out value="${enrollmentlist.status}"/></td>
 	<td><c:out value="${enrollmentlist.grade}"/></td>
 	  
-	   <td>
+	 <td>
 	 
 	 <form action ="HomeServlet" method="post">
 	 <input type ="hidden" name ="enrollmentid" id="enrollmentid" value="${enrollmentlist.enrollmentid}">
@@ -67,6 +69,7 @@ function transcript() {
 	<input type="submit" value="drop" id="submit" />
 	 </form>
 	 </td> </tr>
+	
 	</c:forEach> 
 				 
 	
