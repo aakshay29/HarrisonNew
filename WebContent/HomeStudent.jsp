@@ -53,7 +53,7 @@ function transcript() {
         <tr><th>Course Name</th><th>Classroom</th><th>Schedule</th><th>Status</th><th>Grade</th></tr>
     </thead>
     <tr>
-	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.name}"/></td>
+	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.coursename}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/></td>
 	<td><c:out value="${enrollmentlist.status}"/></td>
