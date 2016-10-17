@@ -80,9 +80,11 @@ public class LoginServlet extends HttpServlet {
 			else if(role == 3){
 				System.out.println("three");
 				Harrisonstudent student = ManageStudent.getStudentFromUserid(user);
+				session.setAttribute("student", student);
 				enrollmentlist = student.getHarrisonenrollments();
 				session.setAttribute("enrollmentlist", enrollmentlist);
-				System.out.println(enrollmentlist.get(0).getClass().getName().toString());
+				classList = ManageClass.classes();
+				session.setAttribute("classList", classList);
 				//request.getSession().setAttribute("enrollmentList", enrollmentList);
 				nextURL="/HomeStudent.jsp";
 			}

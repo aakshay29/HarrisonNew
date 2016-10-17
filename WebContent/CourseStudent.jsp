@@ -39,23 +39,40 @@
  
 
  
-     <form action ="HomeServlet" method="post">
-     <table>
- 	<c:forEach var="enrollmentlist" items="${enrollmentlist}">
-   <tr><td>Class Name</td><td>Description</td><td>Class Room</td><td>Schedule</td><td>Available</td></tr>
 
-    <tr>
-	<td><input type ="hidden" name ="classid" id="classid" value="${enrollmentlist.harrisonclass.classid}" /></td>
-	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.name}"/></td>
-	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.description}"/></td>
-	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/></td>
-	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/></td>
-	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.available}"/></td>
-	 <td><input type="submit" value="Enroll" id="enroll" name="enroll"/> </td>
+     <table>
+ 	<c:forEach var="classList" items="${classList}">
+   
+   <tr>  
+   
+   <td>Class Name</td>
+   <td>Description</td>
+   <td>Class Room</td>
+   <td>Schedule</td>
+   <td>Available</td>
+   
+   </tr>
+
+
+	<td><c:out value="${harrisonclass.harrisoncourse.name}"/></td>
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.description}"/></td>
+	<td><c:out value="${classList.harrisonclass.classroom}"/></td>
+	<td><c:out value="${classList.harrisonclass.schedule}"/></td>
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.available}"/></td>
+	 
+	 <td> 
+	 <form action ="HomeServlet" method="post">
+	 <input type ="hidden" name ="classid" id="classid" value="${enrollmentlist.harrisonclass.classid}" />
+	<input type="hidden" value="enroll"  name="action"/>
+	<input type="submit" value="enroll" id="submit" />
+	 </form>
+	 
+	 </td>
+
 	</tr>
 	</c:forEach> 
 		 </table>	
-	</form>    
+  
   
            
 </body>
