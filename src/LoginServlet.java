@@ -60,6 +60,9 @@ public class LoginServlet extends HttpServlet {
 		String password=request.getParameter("password");
 		Harrisonuser user=ManageUser.isValidUser(email,password);
 		
+		classList = ManageClass.classes();
+		session.setAttribute("classList", classList);
+		
 		if(user !=null){	
 			session.setAttribute("user", user);
 			BigDecimal one = new BigDecimal(1);
@@ -83,15 +86,11 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("student", student);
 				enrollmentlist = student.getHarrisonenrollments();
 				session.setAttribute("enrollmentlist", enrollmentlist);
-				classList = ManageClass.classes();
-				session.setAttribute("classList", classList);
 				//request.getSession().setAttribute("enrollmentList", enrollmentList);
 				nextURL="/HomeStudent.jsp";
 			}
 			else{
 				System.out.println("none");
-				classList = ManageClass.classes();
-				session.setAttribute("classList", classList);
 				nextURL="/Login.jsp";
 			}
 		}
