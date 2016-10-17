@@ -12,11 +12,20 @@
 
 	<form action="InstructorServlet?action=StudentRoster" method="post">
 		<button id="submit" type="submit" value="Submit">
-			<font color="blue">View Student Student Roster</font>
+			<font color="blue">Student Roster</font>
 		</button>
 	</form>
-	
 
+	<form action="InstructorServlet?action=ViewCourses" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">View Courses</font>
+		</button>
+	</form>
+	<form action="InstructorServlet?action=ViewGrades" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">Student Grades</font>
+		</button>
+	</form>
 	<c:forEach var="lecture" items="${lectures}">
 		<table class="table table-bordered table-striped table-hover"
 			id="myTable">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import UserData.ManageInstructor;
+import UserData.ManageStudent;
 import UserData.ManageUser;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
@@ -45,7 +46,8 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 	
-		String role =request.getParameter("id");
+		String role =request.getParameter("check");
+		System.out.println("role :" + role);
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password =request.getParameter("password");
@@ -54,11 +56,17 @@ public class RegisterServlet extends HttpServlet {
 		
 		if(role.equalsIgnoreCase("student")){
 			BigDecimal student= new BigDecimal(1);
-			String major= request.getParameter("Major");
-			String year=request.getParameter("EnrollmentYear");
+			System.out.println("studentrole: "+student);
 			
+			String major= request.getParameter("major");
+			System.out.println("major: "+major);
+			
+			String year=request.getParameter("year");
 			int yr =Integer.parseInt(year);
+			System.out.println("year: "+year);
+			
 			BigDecimal enyear= new BigDecimal (yr);
+			System.out.println("year: "+enyear);
 			
 			newuser.setName(name);
 			newuser.setEmail(email);
@@ -72,12 +80,14 @@ public class RegisterServlet extends HttpServlet {
 			stud.setHarrisonuser(user);
 			stud.setMajor(major);
 			stud.setYearofentry(enyear);
+			ManageStudent.addStudent(stud);
 			System.out.println("Student Record Inserted");
 			
 		}
 		else if(role.equalsIgnoreCase("Instructor")){
 			BigDecimal instructor= new BigDecimal (2);
-			String department=request.getParameter("Department");
+			String department=request.getParameter("department");
+			System.out.println("Dep is : "+ department);
 			String officenumber= request.getParameter("officenumber");
 			int offnumber=Integer.parseInt(officenumber);
 			BigDecimal office= new BigDecimal (offnumber);
@@ -93,7 +103,7 @@ public class RegisterServlet extends HttpServlet {
 			inst.setHarrisonuser(user);
 			inst.setOfficenumber(office);
 			inst.setDepartment(department);
-		//	ManageInstructor.insert(inst);
+			ManageInstructor.addInstructor(inst);
 			System.out.println("Student Record Inserted");
 			
 			

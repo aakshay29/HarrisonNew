@@ -88,7 +88,7 @@ public class InstructorServlet extends HttpServlet {
 
 			en.setGrade(grade);
 			ManageEnrollment.update(en);
-			nextURL = "/StudentRoster.jsp";
+			nextURL = "/InstructorServlet?action=StudentRoster";
 
 		}
 
