@@ -138,9 +138,8 @@ $(document).ready(function(){
 				<c:if test="${user.role == 2}">
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav nav_1">
-							<li><a href="roster.jsp">Roster</a></li>
-							<li><a href="grades.jsp">Assign Grades</a></li>
-							<li><a href="grades.jsp?action=view">View Grades</a></li>
+							<li><a href="InstructorServlet?method=post&action=StudentRoster">Roster</a></li>
+							<li><a href="InstructorServlet?method=post&action=Student Grades">View Grades</a></li>
 							<li><a href="courses">Courses</a></li>
 							<li><a href="currentsem.jsp">Classes in current classes</a></li>
 							<li class="last"><a href="contact.html">Contacts</a></li>
