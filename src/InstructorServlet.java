@@ -74,8 +74,6 @@ public class InstructorServlet extends HttpServlet {
 		}
 		
 		else if(action.equalsIgnoreCase("AssignGrade")){
-			
-			
 			String id =request.getParameter("StudentId");
 			String classid =request.getParameter("Classid");
 			String grade =request.getParameter("Grade");
