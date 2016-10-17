@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
+import model.Harrisonenrollment;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
 import model.Harrisonuser;
@@ -19,9 +20,10 @@ public class ManageStudent {
 		return student;
 	}
 
-	public static Harrisonstudent getStudent(Harrisonuser harrisonuser) {
+	public static Harrisonstudent getStudentFromUserid(Harrisonuser harrisonuser) {
+		//System.out.println("Enter: " + userid);
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonstudent u where harrisonuser = :harrisonuser ";
+		String qString = "Select u from Harrisonstudent u where u.harrisonuser = :harrisonuser ";
 		TypedQuery<Harrisonstudent> q = em.createQuery(qString, Harrisonstudent.class);
 		q.setParameter("harrisonuser", harrisonuser);
 		Harrisonstudent student = null;
@@ -131,4 +133,5 @@ public class ManageStudent {
 		return students;
 
 	}
+
 }

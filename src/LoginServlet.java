@@ -73,13 +73,17 @@ public class LoginServlet extends HttpServlet {
 			}
 			else if(role == 2){
 				System.out.println("two");
-				nextURL="/Login.jsp";
+				Harrisoninstructor inst = ManageInstructor.getInstructor(user);
+				session.setAttribute("inst", inst);
+				nextURL="/InstructorStart.jsp";
 			}
 			else if(role == 3){
 				System.out.println("three");
-				Harrisonstudent student = ManageStudent.getStudent(user);
+				Harrisonstudent student = ManageStudent.getStudentFromUserid(user);
 				enrollmentList = student.getHarrisonenrollments();
 				session.setAttribute("enrollmentList", enrollmentList);
+				System.out.println(enrollmentList.get(0).getClass().getName().toString());
+				//request.getSession().setAttribute("enrollmentList", enrollmentList);
 				nextURL="/HomeStudent.jsp";
 			}
 			else{
