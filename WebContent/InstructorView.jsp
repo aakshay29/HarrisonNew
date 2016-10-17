@@ -27,6 +27,11 @@
 			<font color="blue">Student Grades</font>
 		</button>
 	</form>
+		<form action="InstructorServlet?action=Email" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">Email My Courses</font>
+		</button>
+	</form>
 	<c:forEach var="lecture" items="${lectures}">
 		<table class="table table-bordered table-striped table-hover"
 			id="myTable">
