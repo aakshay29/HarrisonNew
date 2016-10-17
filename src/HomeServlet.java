@@ -45,12 +45,16 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String nextURL;
+		HttpSession session = request.getSession();
 		String action = request.getParameter("action");	
 		if(action.equalsIgnoreCase("drop")){
 			int enID = Integer.parseInt(request.getParameter("enrollmentid"));	
-			Harrisonenrollment enrollment = ManageEnrollment.getRntollmenr(enID);
+			Harrisonenrollment enrollment = ManageEnrollment.getEnrollment(enID);
 			ManageEnrollment.delete(enrollment);
-			nextURL = "/AdminEdit.jsp";
+			Harrisonstudent student = (Harrisonstudent) session.getAttribute("student");
+			List <Harrisonenrollment> enrollmentlist = student.getHarrisonenrollments();
+			session.setAttribute("enrollmentlist", enrollmentlist);
+			nextURL = "/HomeStudent.jsp";
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
