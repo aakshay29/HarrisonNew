@@ -60,13 +60,15 @@ public class MailServlet extends HttpServlet {
 			String from ="Harrison.com";
 			String subject="Welcome to our email list";
 			
-			List <Harrisonclass> lect= (List<Harrisonclass>) session.getAttribute("lectures");
-			
-			 for(Harrisonclass s : lect) {
+			List <Harrisonclass> lectures= (List<Harrisonclass>) session.getAttribute("lectures");
+			String body ="";
+			 for(Harrisonclass s : lectures) {
 	            System.out.println(s.getClassroom());
+	            body +=s.getClassroom();
 	            System.out.println(s.getSchedule());
+	            body +=s.getSchedule();
 	        }
-			String body ="Dear "+firstname +",\n\n"+"Thanks for you for shopping with. Your order is confimed and will be shipped to you within next 2 days\n\n";
+			 
 			boolean isBodyHTML=false;
 			System.out.println(isBodyHTML);
 			
