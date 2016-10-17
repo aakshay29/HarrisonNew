@@ -16,7 +16,7 @@ import model.Harrisonstudent;
 
 public class ManageEnrollment {
 
-	public static Harrisonenrollment getUser(long enrollmentid) {
+	public static Harrisonenrollment getEnrollment(long enrollmentid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		Harrisonenrollment enrollment = em.find(Harrisonenrollment.class, enrollmentid);
 		return enrollment;

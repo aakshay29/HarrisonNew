@@ -27,15 +27,24 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><c:out value="${studentenrollment.harrisonstudent.harrisonuser.name}" /></td>
+
+						<td><c:out
+								value="${studentenrollment.harrisonstudent.harrisonuser.name}" /></td>
 						<td><c:out value="${studentenrollment.harrisonclass.classid}" /></td>
 						<td><c:out value="${studentenrollment.status}" /></td>
-						<td><c:out value="${studentenrollment}" /></td>
-						<td><c:out value="${lecture.harrisoncourse.status}" /></td>
+						<td><input id="Grade" name="Grade" type="text"
+							value="${studentenrollment.grade}" /></td>
+						<td><input id="StudentId" name="StudentId" type="hidden"
+							value="${studentenrollment.harrisonstudent.studentid}" />
+							<input id="Classid" name="Classid" type="hidden"
+							value="${studentenrollment.harrisonclass.classid}" />
+							<button id="submit" type="submit" value="Submit">
+								<font color="blue">Update Grade</font>
+							</button></td>
 					</tr>
 				</tbody>
 			</table>
-			
+
 		</form>
 	</c:forEach>
 

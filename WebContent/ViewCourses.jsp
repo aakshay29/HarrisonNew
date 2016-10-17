@@ -21,7 +21,7 @@
 
 					<c:forEach var="course" items="${courses}">
 					<tr>
-						<td><c:out value="${course.id}" /></td>
+						<td><c:out value="${course.courseid}" /></td>
 						<td><c:out value="${course.coursename}" /></td>
 						<td><c:out value="${course.coursedescription}" /></td>
 

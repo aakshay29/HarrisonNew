@@ -12,22 +12,31 @@
 
 	<form action="InstructorServlet?action=StudentRoster" method="post">
 		<button id="submit" type="submit" value="Submit">
-			<font color="blue">View Student Student Roster</font>
+			<font color="blue">Student Roster</font>
 		</button>
 	</form>
-	
 
+	<form action="InstructorServlet?action=ViewCourses" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">View Courses</font>
+		</button>
+	</form>
+	<form action="InstructorServlet?action=ViewGrades" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">Student Grades</font>
+		</button>
+	</form>
 	<c:forEach var="lecture" items="${lectures}">
 		<table class="table table-bordered table-striped table-hover"
 			id="myTable">
 			<thead>
 				<tr>
 					<b>
-						<th>Class No.</th>
-						<th>Classroom</th>
-						<th>Semester</th>
-						<th>Course Name</th>
-						<th>Status</th>
+						<th> Class No. </th>
+						<th> Classroom </th>
+						<th>  Semester </th>
+						<th> CourseName </th>
+						<th> Status </th>
 					</b>
 				</tr>
 			</thead>
@@ -37,7 +46,7 @@
 					<td><c:out value="${lecture.classroom}" /></td>
 					<td><c:out value="${lecture.semester}" /></td>
 					<td><c:out value="${lecture.harrisoncourse.coursename}" /></td>
-					<td><c:out value="${lecture.harrisoncourse.status}" /></td>
+					<td><c:out value="${lecture.status}" /></td>
 				</tr>
 			</tbody>
 		</table>
