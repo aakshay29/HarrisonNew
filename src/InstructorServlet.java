@@ -41,7 +41,10 @@ public class InstructorServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		if ("post".equalsIgnoreCase(request.getParameter("method"))) {
+			doPost(request, response);
+			return;
+		}
 		HttpSession session = request.getSession();
 		String nextURL;
 		Harrisoninstructor inst = (Harrisoninstructor) session.getAttribute("inst");
@@ -88,7 +91,7 @@ public class InstructorServlet extends HttpServlet {
 
 			en.setGrade(grade);
 			ManageEnrollment.update(en);
-			nextURL = "/InstructorServlet?action=StudentRoster";
+			nextURL = "/InstructorServlet?method=post&action=StudentRoster";
 
 		}
 
