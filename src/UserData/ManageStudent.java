@@ -22,7 +22,7 @@ public class ManageStudent {
 
 	public static Harrisonstudent getStudent(Harrisonuser harrisonuser) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisonstudent u where harrisonuser = :harrisonuser ";
+		String qString = "Select u from Harrisonstudent u where u.harrisonuser = :harrisonuser ";
 		TypedQuery<Harrisonstudent> q = em.createQuery(qString, Harrisonstudent.class);
 		q.setParameter("harrisonuser", harrisonuser);
 		Harrisonstudent student = null;
