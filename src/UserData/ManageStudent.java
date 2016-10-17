@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
+import model.Harrisonenrollment;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
 import model.Harrisonuser;
@@ -131,4 +132,5 @@ public class ManageStudent {
 		return students;
 
 	}
+
 }
