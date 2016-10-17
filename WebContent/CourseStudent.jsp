@@ -1,4 +1,4 @@
-%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -41,7 +41,7 @@
  
 
      <table>
- 	<c:forEach var="classList" items="${classList}">
+ 	
    
    <tr>  
    
@@ -52,28 +52,28 @@
    <td>Available</td>
    
    </tr>
-
-
-	<td><c:out value="${harrisonclass.harrisoncourse.name}"/></td>
-	<td><c:out value="${classList.harrisonclass.harrisoncourse.description}"/></td>
-	<td><c:out value="${classList.harrisonclass.classroom}"/></td>
-	<td><c:out value="${classList.harrisonclass.schedule}"/></td>
-	<td><c:out value="${classList.harrisonclass.harrisoncourse.available}"/></td>
+<c:forEach var="classList" items="${classList}">
+<tr>
+	<td><c:out value="${classList.harrisoncourse.coursename}"/></td>
+	<td><c:out value="${classList.harrisoncourse.coursedescription}"/></td>
+	<td><c:out value="${classList.classroom}"/></td>
+	<td><c:out value="${classList.schedule}"/></td>
+	<td><c:out value="${classList.harrisoncourse.available}"/></td>
 	 
 	 <td> 
 	 <form action ="HomeServlet" method="post">
-	 <input type ="hidden" name ="classid" id="classid" value="${enrollmentlist.harrisonclass.classid}" />
+	 <input type ="hidden" name ="classid" id="classid" value="${classList.classid}" />
 	<input type="hidden" value="enroll"  name="action"/>
 	<input type="submit" value="enroll" id="submit" />
 	 </form>
 	 
 	 </td>
-
 	</tr>
+
 	</c:forEach> 
 		 </table>	
   
   
-           
+       <jsp:include page="Footer.jsp"></jsp:include>    
 </body>
 </html>

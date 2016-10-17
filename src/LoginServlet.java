@@ -62,6 +62,7 @@ public class LoginServlet extends HttpServlet {
 		
 		classList = ManageClass.classes();
 		session.setAttribute("classList", classList);
+		//System.out.println(classList.get(0).harrisoncourse.coursename);
 		
 		if(user !=null){	
 			session.setAttribute("user", user);
