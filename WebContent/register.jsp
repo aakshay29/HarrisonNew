@@ -79,8 +79,9 @@ function checkUser() {
           <p>Already have an account? <a href="Login.jsp">Sign In</a></p>
           <br><br>
   
-			      Instructor <input type="radio" onclick="javascript:checkUser();" name="check" id="instructor"/>
-       			  Student <input type="radio" onclick="javascript:checkUser();" name="check" id="student"/>
+			      Instructor <input type="radio" onclick="javascript:checkUser();" name="check" id="instructor" value="instructor"/>
+			      
+       			  Student <input type="radio" onclick="javascript:checkUser();" name="check" id="student" value="student"/>
        
        
        

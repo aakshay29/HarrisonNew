@@ -45,7 +45,8 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 	
-		String role =request.getParameter("id");
+		String role =request.getParameter("check");
+		System.out.println("role :" + role);
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password =request.getParameter("password");
@@ -54,11 +55,17 @@ public class RegisterServlet extends HttpServlet {
 		
 		if(role.equalsIgnoreCase("student")){
 			BigDecimal student= new BigDecimal(1);
-			String major= request.getParameter("Major");
-			String year=request.getParameter("EnrollmentYear");
+			System.out.println("studentrole: "+student);
 			
+			String major= request.getParameter("major");
+			System.out.println("major: "+major);
+			
+			String year=request.getParameter("year");
 			int yr =Integer.parseInt(year);
+			System.out.println("year: "+year);
+			
 			BigDecimal enyear= new BigDecimal (yr);
+			System.out.println("year: "+enyear);
 			
 			newuser.setName(name);
 			newuser.setEmail(email);
@@ -93,7 +100,7 @@ public class RegisterServlet extends HttpServlet {
 			inst.setHarrisonuser(user);
 			inst.setOfficenumber(office);
 			inst.setDepartment(department);
-		//	ManageInstructor.insert(inst);
+			ManageInstructor.addInstructor(inst);
 			System.out.println("Student Record Inserted");
 			
 			

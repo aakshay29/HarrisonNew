@@ -1,6 +1,8 @@
 
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Harrisonclass;
 import model.Harrisonuser;
 
 
@@ -56,6 +59,13 @@ public class MailServlet extends HttpServlet {
 			String to =email;
 			String from ="Harrison.com";
 			String subject="Welcome to our email list";
+			
+			List <Harrisonclass> lect= (List<Harrisonclass>) session.getAttribute("lectures");
+			
+			 for(Harrisonclass s : lect) {
+	            System.out.println(s.getClassroom());
+	            System.out.println(s.getSchedule());
+	        }
 			String body ="Dear "+firstname +",\n\n"+"Thanks for you for shopping with. Your order is confimed and will be shipped to you within next 2 days\n\n";
 			boolean isBodyHTML=false;
 			System.out.println(isBodyHTML);
