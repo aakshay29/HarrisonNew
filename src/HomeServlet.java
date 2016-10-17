@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import UserData.ManageClass;
 import UserData.ManageEnrollment;
 import UserData.ManageInstructor;
 import UserData.ManageStudent;
@@ -43,6 +45,7 @@ public class HomeServlet extends HttpServlet {
 		user = (Harrisonuser) session.getAttribute("user");
 		List <Harrisonclass> classList = null;
 		List <Harrisonenrollment> enrollmentList = null;
+		String nextURL = "";
 
 		List<Harrisonstudent> harrisonstudents;
 		Harrisoninstructor harrisoninstructor = ManageInstructor.getInstructor(205);
@@ -50,7 +53,27 @@ public class HomeServlet extends HttpServlet {
 		for(Harrisonstudent harrisonstudent:harrisonstudents){
 			System.out.println(harrisonstudent.getStudentid());
 		}
-	
+		BigDecimal one = new BigDecimal(1);
+		BigDecimal two = new BigDecimal(2);
+		BigDecimal three = new BigDecimal(3);
+		if(user.getRole() == one){
+			nextURL="/Login.jsp";
+		}
+		else if(user.getRole() == two){
+			nextURL="/Login.jsp";
+		}
+		else if(user.getRole() == three){
+			Harrisonstudent student = ManageStudent.getStudent(user);
+			enrollmentList = student.getHarrisonenrollments();
+			session.setAttribute("enrollmentList", enrollmentList);
+			nextURL="/HomeStudent.jsp";
+		}
+		else{
+			classList = ManageClass.classes();
+			session.setAttribute("classList", classList);
+			nextURL="/Login.jsp";
+		}
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 	/**
