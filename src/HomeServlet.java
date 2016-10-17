@@ -38,8 +38,16 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Harrisonuser user = null;
 		HttpSession session = request.getSession();
+		
+		String logout = (String)request.getParameter("logout");
+		if("yes".equalsIgnoreCase(logout)){
+			session.setAttribute("user", null);
+		}
+		
+		
+		Harrisonuser user = null;
+		
 		user = (Harrisonuser) session.getAttribute("user");
 		List <Harrisonclass> classList = null;
 		List <Harrisonenrollment> enrollmentList = null;
@@ -47,11 +55,19 @@ public class HomeServlet extends HttpServlet {
 		List<Harrisonstudent> harrisonstudents;
 		Harrisoninstructor harrisoninstructor = ManageInstructor.getInstructor(205);
 		harrisonstudents = ManageStudent.students(harrisoninstructor, "Spring2016");
-		for(Harrisonstudent harrisonstudent:harrisonstudents){
+		for(Harrisonstudent harrisonstudent:harrisonstudents)
+		{
 			System.out.println(harrisonstudent.getStudentid());
 		}
+		
+		
+		
+		String nextURL = "/Home.jsp";
+		getServletContext().getRequestDispatcher(nextURL).forward(request, response);
 	
-	}
+	
+
+	} 
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
