@@ -54,8 +54,8 @@
    </tr>
 
 
-	<td><c:out value="${harrisonclass.harrisoncourse.name}"/></td>
-	<td><c:out value="${classList.harrisonclass.harrisoncourse.description}"/></td>
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.coursename}"/></td>
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.coursedescription}"/></td>
 	<td><c:out value="${classList.harrisonclass.classroom}"/></td>
 	<td><c:out value="${classList.harrisonclass.schedule}"/></td>
 	<td><c:out value="${classList.harrisonclass.harrisoncourse.available}"/></td>
