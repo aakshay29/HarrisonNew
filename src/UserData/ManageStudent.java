@@ -7,7 +7,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import model.Harrisonenrollment;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
 import model.Harrisonuser;
@@ -21,7 +20,7 @@ public class ManageStudent {
 	}
 
 	public static Harrisonstudent getStudentFromUserid(Harrisonuser harrisonuser) {
-		//System.out.println("Enter: " + userid);
+		// System.out.println("Enter: " + userid);
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "Select u from Harrisonstudent u where u.harrisonuser = :harrisonuser ";
 		TypedQuery<Harrisonstudent> q = em.createQuery(qString, Harrisonstudent.class);

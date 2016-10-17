@@ -20,7 +20,7 @@ public class ManageInstructor {
 	
 	public static Harrisoninstructor getInstructor(Harrisonuser harrisonuser) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Harrisoninstructor u where harrisonuser = :harrisonuser ";
+		String qString = "Select u from Harrisoninstructor u where u.harrisonuser = :harrisonuser ";
 		TypedQuery<Harrisoninstructor> q = em.createQuery(qString, Harrisoninstructor.class);
 		q.setParameter("harrisonuser", harrisonuser);
 		Harrisoninstructor instructor = null;
