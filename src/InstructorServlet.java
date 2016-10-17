@@ -96,6 +96,9 @@ public class InstructorServlet extends HttpServlet {
 		
 			
 		}
+		
+		else if(action.equalsIgnoreCase("ViewGrades"));
+		List <Harrisonenrollment> hm=ManageEnrollment.enrollmentByInstructor(inst, sem);
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 

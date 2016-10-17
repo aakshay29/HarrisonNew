@@ -58,28 +58,7 @@ public class LoginServlet extends HttpServlet {
 		if(user !=null){
 			System.out.println("The user is valid");
 			session.setAttribute("user", user);
-			int role = Integer.valueOf(user.getRole().intValue());
-			
-			if(role == 3){
-			List <Harrisoncourse> courses=ManageCourse.courses();
-			session.setAttribute("courses", courses);
-			nextURL="/Admin.jsp";
-				
-			}
-			else if (role ==2){
-			Harrisoninstructor inst=ManageInstructor.getInstructor(user);
-			session.setAttribute("inst", inst);
-			nextURL="/SelectSemester.jsp";
-			}
-			else if (role ==1){
-				Harrisonstudent stud=ManageStudent.getStudent(user);
-				session.setAttribute("stud", stud);
-				nextURL="/HomeStudent.jsp";
-				}
-		}
-		else {
-			System.out.println("The user is invalid");
-			nextURL="/Login.jsp";
+			nextURL="/Home.jsp";
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
