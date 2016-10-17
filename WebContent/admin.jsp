@@ -50,21 +50,20 @@ function addcourse()
     
     
      <form action ="DeleteCourse" method="post">
- 
+     <table>
  	
  	<c:forEach var="class" items="${classes}">
-    <table>
+      <tr><td>Class Name</td><td>Description</td></tr>
     <tr>
 	<td><input type ="hidden" name ="classid" id="classid" value="${enrollmentlist.harrisonclass.classid}" /></td>
 	<td><c:out value="${classes.harrisonclass.harrisoncourse.name}"/></td>
 	<td><c:out value="${classes.harrisonclass.harrisoncourse.description}"/></td>
 	
-	<td><input type="submit" value="Drop" id="drop" name="drop"/> </td>
 	
+	<td><input type="submit" value="Drop" id="drop" name="action"/> </td>
 	 </tr>
-	 </table>
 	</c:forEach> 
-			
+	 </table>	
 	</form>    
     
     
@@ -99,7 +98,32 @@ function addcourse()
 	 <button id="submit" type="submit" value="Submit" style="display: none;"> Submit </button>
     
     </form>
-    
-    <jsp:include page="Footer.jsp"></jsp:include>
+
+	<form>
+		<div>
+			<input type="submit" value="Update User" id="update" name="update"
+				onclick="javascript:update();" />
+		</div>
+		
+		<div id="usertable" class="form-group" style="visibility:hidden">
+
+
+		
+
+
+
+		
+		
+		
+		
+		</div>
+
+
+
+
+
+	</form>
+
+	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

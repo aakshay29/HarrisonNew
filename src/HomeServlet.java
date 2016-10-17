@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import UserData.ManageCourse;
 import UserData.ManageEnrollment;
 import UserData.ManageInstructor;
 import UserData.ManageStudent;
 import model.Harrisonclass;
+import model.Harrisoncourse;
 import model.Harrisonenrollment;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
@@ -38,15 +40,20 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//HEAD
 		HttpSession session = request.getSession();
 		
 		String logout = (String)request.getParameter("logout");
 		if("yes".equalsIgnoreCase(logout)){
 			session.setAttribute("user", null);
 		}
-		
+
+
 		
 		Harrisonuser user = null;
+
+
+
 		
 		user = (Harrisonuser) session.getAttribute("user");
 		List <Harrisonclass> classList = null;
@@ -58,6 +65,7 @@ public class HomeServlet extends HttpServlet {
 		for(Harrisonstudent harrisonstudent:harrisonstudents)
 		{
 			System.out.println(harrisonstudent.getStudentid());
+		
 		}
 		
 		

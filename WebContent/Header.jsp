@@ -140,13 +140,17 @@ $(document).ready(function(){
 						<ul class="nav navbar-nav nav_1">
 							<li><a href="roster.jsp">Roster</a></li>
 							<li><a href="grades.jsp">Assign Grades</a></li>
-
 							<li><a href="grades.jsp?action=view">View Grades</a></li>
 							<li><a href="courses">Courses</a></li>
 							<li><a href="currentsem.jsp">Classes in current classes</a></li>
 							<li class="last"><a href="contact.html">Contacts</a></li>
 						</ul>
-					</div>
+
+					<li><a href="grades.jsp?action=view">View Grades</a></li>
+					<li><a href="ViewCourses.jsp">Courses</a></li>
+					<li><a href="currentsem.jsp">Classes in current classes</a></li>
+					<li class="last"><a href="contact.html">Contacts</a></li>
+
 				</c:if>
 			</c:if>
 		</div>

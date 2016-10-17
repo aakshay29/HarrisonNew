@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -40,23 +40,21 @@
 
  
      <form action ="HomeServlet" method="post">
- 
+     <table>
  	<c:forEach var="enrollmentlist" items="${enrollmentlist}">
-    <table>
+   <tr><td>Class Name</td><td>Description</td><td>Class Room</td><td>Schedule</td><td>Available</td></tr>
+
     <tr>
-	
 	<td><input type ="hidden" name ="classid" id="classid" value="${enrollmentlist.harrisonclass.classid}" /></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.name}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.description}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.classroom}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.schedule}"/></td>
 	<td><c:out value="${enrollmentlist.harrisonclass.harrisoncourse.available}"/></td>
-	
 	 <td><input type="submit" value="Enroll" id="enroll" name="enroll"/> </td>
-	 </tr>
-	 </table>
+	</tr>
 	</c:forEach> 
-			
+		 </table>	
 	</form>    
   
            
