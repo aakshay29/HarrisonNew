@@ -101,10 +101,12 @@ public class ManageUser {
 		TypedQuery<Harrisonuser> q = em.createQuery(qString, Harrisonuser.class);
 		Harrisonuser user = null;
 		q.setParameter("email", email);
+		System.out.println("email" + email);
 		q.setParameter("pass", password);
-
+		System.out.println("password " + password);
 		try {
 			user = q.getSingleResult();
+			System.out.println("valid user");
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {

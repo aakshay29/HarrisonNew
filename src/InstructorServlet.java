@@ -97,8 +97,11 @@ public class InstructorServlet extends HttpServlet {
 			
 		}
 		
-		else if(action.equalsIgnoreCase("ViewGrades"));
+		else if(action.equalsIgnoreCase("ViewGrades")){
 		List <Harrisonenrollment> hm=ManageEnrollment.enrollmentByInstructor(inst, sem);
+		session.setAttribute("enroll", hm);
+		nextURL="/ViewGrades.jsp";
+		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
