@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import UserData.ManageInstructor;
+import UserData.ManageStudent;
 import UserData.ManageUser;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
@@ -79,12 +80,14 @@ public class RegisterServlet extends HttpServlet {
 			stud.setHarrisonuser(user);
 			stud.setMajor(major);
 			stud.setYearofentry(enyear);
+			ManageStudent.addStudent(stud);
 			System.out.println("Student Record Inserted");
 			
 		}
 		else if(role.equalsIgnoreCase("Instructor")){
 			BigDecimal instructor= new BigDecimal (2);
-			String department=request.getParameter("Department");
+			String department=request.getParameter("department");
+			System.out.println("Dep is : "+ department);
 			String officenumber= request.getParameter("officenumber");
 			int offnumber=Integer.parseInt(officenumber);
 			BigDecimal office= new BigDecimal (offnumber);

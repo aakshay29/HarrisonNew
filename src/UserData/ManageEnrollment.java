@@ -136,5 +136,22 @@ public class ManageEnrollment {
 		return enrollment;
 
 	}
+	
+	public static List<Harrisonenrollment> EnrollmentsBYInstuctorSemester(Harrisoninstructor harrisoninstructor, String semester) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select e from Harrisonenrollment e where e.harrisonclass in (select c from Harrisonclass c where c.harrisoninstructor = :harrisoninstructor and c.semester = :semester)";
+		TypedQuery<Harrisonenrollment> q = em.createQuery(qString, Harrisonenrollment.class);
+		q.setParameter("harrisoninstructor", harrisoninstructor);
+		q.setParameter("semester", semester);
+		List<Harrisonenrollment> enrolments = null;
+		try {
+			enrolments = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return enrolments;
 
+	}
 }
