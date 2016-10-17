@@ -110,6 +110,7 @@ public class ManageEnrollment {
 		List<Harrisonenrollment> enrollments = null;
 		try {
 			enrollments = q.getResultList();
+			System.out.println("Got results");
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {

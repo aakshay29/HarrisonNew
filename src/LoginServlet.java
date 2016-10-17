@@ -83,6 +83,8 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("student", student);
 				enrollmentlist = student.getHarrisonenrollments();
 				session.setAttribute("enrollmentlist", enrollmentlist);
+				classList = ManageClass.classes();
+				session.setAttribute("classList", classList);
 				//request.getSession().setAttribute("enrollmentList", enrollmentList);
 				nextURL="/HomeStudent.jsp";
 			}

@@ -53,13 +53,24 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nextURL = "";
+		HttpSession session = request.getSession();
+		Harrisonstudent student = (Harrisonstudent) session.getAttribute("student");
 		String action = request.getParameter("action");	
 		if(action.equalsIgnoreCase("drop")){
-			System.out.println("Hello......");
+			System.out.println("Drop......");
 			int enID = Integer.parseInt(request.getParameter("enrollmentid"));	
 			Harrisonenrollment enrollment = ManageEnrollment.getEnrollment(enID);
 			ManageEnrollment.delete(enrollment);		
 			nextURL = "/HomeStudent.jsp";
+		}
+		if(action.equalsIgnoreCase("enroll")){
+			System.out.println("Enroll......");
+			int classid = Integer.parseInt(request.getParameter("classid"));	
+			Harrisonenrollment en = new Harrisonenrollment();
+			en.setHarrisonclass(ManageClass.getClass(classid));
+			en.setHarrisonstudent(student);
+			en.setStatus(ManageClass.getClass(classid).getStatus());
+			ManageEnrollment.insert(en);
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
