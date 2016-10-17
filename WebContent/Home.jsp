@@ -23,12 +23,11 @@
 			%>	
 				 		
   		<p class="description">
-    	 Hi! <%= user.getName()%>, You can now view all your courses and enroll in new courses
+    	 Hi! <%= user.getName()%>, <br> You can now view all your courses and enroll in new courses
         </p>
         <div class="breadcrumb1">
             <ul>
-                <li class="icon6"><a href="index.html">Home</a></li>
-                <li class="current-page">Login</li>
+                          <li class="current-page">Home</li>
    </ul>
         </div>
   	</div>
