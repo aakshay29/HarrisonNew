@@ -80,6 +80,7 @@ public class InstructorServlet extends HttpServlet {
 			Harrisonclass clas=ManageClass.getClass(Long.parseLong(classid));
 			
 			
+			
 			Harrisonenrollment en= ManageEnrollment.enrollmentByStudentClass(student,clas);
 			
 			en.setGrade(grade);
