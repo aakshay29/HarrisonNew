@@ -40,7 +40,7 @@
  
      <form action ="HomeServlet" method="post">
  
- 	<c:forEach var="class" items="${classes}">
+ 	<c:forEach var="classes" items="${classList}">
     <table>
     <tr>
 	
