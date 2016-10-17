@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import UserData.ManageClass;
 import UserData.ManageCourse;
 import UserData.ManageInstructor;
 import UserData.ManageStudent;
 import UserData.ManageUser;
 import model.Harrisonuser;
+import model.Harrisonclass;
 import model.Harrisoncourse;
+import model.Harrisonenrollment;
 import model.Harrisoninstructor;
 import model.Harrisonstudent;
 
@@ -50,15 +53,45 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String nextURL="";
+		List <Harrisonclass> classList = null;
+		List <Harrisonenrollment> enrollmentList = null;
 		
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
 		Harrisonuser user=ManageUser.isValidUser(email,password);
 		
-		if(user !=null){
-			System.out.println("The user is valid");
+		if(user !=null){	
 			session.setAttribute("user", user);
-			nextURL="/Home.jsp";
+			BigDecimal one = new BigDecimal(1);
+			BigDecimal two = new BigDecimal(2);
+			BigDecimal three = new BigDecimal(3);
+			int role = user.getRole().intValue();
+			System.out.println("rollee: " + Integer.parseInt(user.getRole().toString()));
+			if(role == 1){
+				System.out.println("one aa");
+				nextURL="/Login.jsp";
+			}
+			else if(role == 2){
+				System.out.println("two");
+				Harrisoninstructor inst = ManageInstructor.getInstructor(user);
+				session.setAttribute("inst", inst);
+				nextURL="/InstructorStart.jsp";
+			}
+			else if(role == 3){
+				System.out.println("three");
+				Harrisonstudent student = ManageStudent.getStudentFromUserid(user);
+				enrollmentList = student.getHarrisonenrollments();
+				session.setAttribute("enrollmentList", enrollmentList);
+				System.out.println(enrollmentList.get(0).getClass().getName().toString());
+				//request.getSession().setAttribute("enrollmentList", enrollmentList);
+				nextURL="/HomeStudent.jsp";
+			}
+			else{
+				System.out.println("none");
+				classList = ManageClass.classes();
+				session.setAttribute("classList", classList);
+				nextURL="/Login.jsp";
+			}
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
