@@ -45,10 +45,13 @@ public class InstructorServlet extends HttpServlet {
 		String nextURL;
 		Harrisoninstructor inst= (Harrisoninstructor) session.getAttribute("inst");
 		String sem= request.getParameter("id");
+		session.setAttribute("sem", sem);
 		
 		List <Harrisonclass> lectures= ManageClass.classes(inst, sem);
 		session.setAttribute("lectures", lectures);
 		nextURL="/InstructorView.jsp";
+		
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 	/**
@@ -58,7 +61,7 @@ public class InstructorServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String nextURL="";
 		Harrisoninstructor inst= (Harrisoninstructor) session.getAttribute("inst");
-		String sem= request.getParameter("id");
+		String sem= (String) session.getAttribute("sem");
 		
 		String action= request.getParameter("action");
 		
@@ -66,6 +69,7 @@ public class InstructorServlet extends HttpServlet {
 			List <Harrisonstudent> students= ManageStudent.students(inst, sem);
 			session.setAttribute("students", students);
 			nextURL="/StudentRoster.jsp";
+			
 				
 		}
 		
