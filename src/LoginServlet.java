@@ -66,18 +66,21 @@ public class LoginServlet extends HttpServlet {
 		
 		if(user !=null){	
 			session.setAttribute("user", user);
-			BigDecimal one = new BigDecimal(1);
-			BigDecimal two = new BigDecimal(2);
-			BigDecimal three = new BigDecimal(3);
 			int role = user.getRole().intValue();
 			System.out.println("rollee: " + Integer.parseInt(user.getRole().toString()));
 			
 			if(role == 1){
+<<<<<<< HEAD
 				System.out.println("*********one*********");
 				Harrisonuser admin = ManageUser.getUserByEmail(user.getEmail());
 				session.setAttribute("admin", admin);
 				session.setAttribute("enrollmentlist", enrollmentlist);
 				nextURL="/admin.jsp";
+=======
+				List <Harrisonuser> userList = ManageUser.getUserList();
+				session.setAttribute("userList", userList);
+				nextURL="/Login.jsp";
+>>>>>>> 2584907865fa7dbaa73500a797427d1e169aec47
 			}
 			else if(role == 2){
 				System.out.println("two");

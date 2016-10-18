@@ -19,13 +19,13 @@ public class DbTestEnrollment {
 
 		Harrisonstudent harrisonstudent = ManageStudent.getStudent(164);
 		Harrisonclass harrisonclass = ManageClass.getClass(280);
-		System.out.println("---->>>"+ ManageEnrollment.gradeByStudentCoursename(harrisonstudent, harrisonclass.getHarrisoncourse().getCoursename()));
-		String s = ""; 
-		s= ManageEnrollment.gradeByStudentCoursename(harrisonstudent, "das");
-		System.out.println("------"+s);
-		if(s==null){
-			System.out.println("null");
-		}
+		System.out.println("---->>>"+ ManageEnrollment.gradeByStudentCoursename(harrisonstudent, "business"));
+//		String s = ""; 
+//		s= ManageEnrollment.gradeByStudentCoursename(harrisonstudent, "das");
+//		System.out.println("------"+s);
+//		if(s==null){
+//			System.out.println("null");
+//		}
 	}
 
 }
