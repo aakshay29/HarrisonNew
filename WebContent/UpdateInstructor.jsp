@@ -42,6 +42,8 @@
                <input type="text"  class="required form-control" placeholder="Email *" name="email" id="email" value="<%= user.getEmail()%>">               
                      
               <input type="password" class="required form-control" placeholder="Password *" name="password" id="password" value="<%= user.getPassword()%>">
+              
+                <input type="text" class="required form-control" placeholder="Role *" name="role" id="role" value="<%= user.getRole()%>">
                             
               <input type="text"  class="required form-control" placeholder="Department" name="department" id="department" value="<%= user.getHarrisoninstructors().get(0).getDepartment()%>">
         
