@@ -82,6 +82,7 @@ function transcript() {
 	 <!-- //Buying transcripts -->
 	
 	<form action="HomeServlet" method="post">
+		<h4>Order transcripts: </h4>
     	<input type="text"  class="required form-control" placeholder="Email *" name="emailAddress">
     	<input type="hidden" name="action" value="Transcript">
     	<input id="submit" type="submit" value="Register"/>

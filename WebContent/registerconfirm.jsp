@@ -34,22 +34,31 @@
 			<h1>HARISSON COLLEGE</h1>
 
 			<center>
-				<h5>
-					<a href="#">HARISSON COLLEGE</a>
-				</h5>
+			
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 					Praesent vestibulum molestie lacus. Aenean nonummy hen drerit
 					mauris. Phasellus porta. Fusce suscipit varius mi Lorem ipsum dolor
 					sit amet, consectetuer adipiscing elit. Praesent vestibulum
 					molestie lacus. Aenean nonummy hen drerit mauris. Phasellus porta.
-					Fusce suscipit varius mi.</p>
+					Fusce suscipit varius mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+					Praesent vestibulum molestie lacus. Aenean nonummy hen drerit
+					mauris. Phasellus porta. Fusce suscipit varius mi Lorem ipsum dolor
+					sit amet, consectetuer adipiscing elit. Praesent vestibulum
+					molestie lacus. Aenean nonummy hen drerit mauris. Phasellus porta.
+					Fusce suscipit varius mi.Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+					Praesent vestibulum molestie lacus. Aenean nonummy hen drerit
+					mauris. Phasellus porta. Fusce suscipit varius mi Lorem ipsum dolor
+					sit amet, consectetuer adipiscing elit. Praesent vestibulum
+					molestie lacus. Aenean nonummy hen drerit mauris. Phasellus porta.
+					Fusce suscipit varius mi</p>
 
 			</center>
 
 			<center>
-				<h4>
-					<a href="Login.jsp" class=" course banner">Login to explore</a>
-				</h4>
+			<br><br><br><br><br><br>
+				<h3>
+					<a href="Login.jsp" class=" course banner">LOGIN TO EXPLORE</a>
+				</h3>
 			</center>
 		</div>
 	</div>
