@@ -26,10 +26,8 @@ function transcript() {
   	<div class="container">
   		<h3>Student Home Page</h3>
   			<%
-  			Harrisonuser user = (Harrisonuser) session.getAttribute("user");
-								
-			%>	
-				 		
+  				Harrisonuser user = (Harrisonuser) session.getAttribute("user");						
+			%>				 		
   		<p class="description">
         Welcome <%= user.getName()%> 
         View current classes, drop classes or view and buy transcripts
@@ -83,6 +81,12 @@ function transcript() {
 	
 	 <!-- //Buying transcripts -->
 	
+	<form action="HomeServlet" method="post">
+    	<input type="text"  class="required form-control" placeholder="Email *" name="emailAddress">
+    	<input type="hidden" name="action" value="Transcript">
+    	<input id="submit" type="submit" value="Register" style="display: none;"/>
+	</form>	
+	
 	 <div>
 	 <input type="submit" value="Buy A Transcript" id="transcript" name="transcript" onclick="javascript:transcript();"/>
 	 </div>
@@ -90,10 +94,6 @@ function transcript() {
 		
 	 <div id="email" class="form-group" style="visibility:hidden">
      <input type="text"  class="required form-control" placeholder="Email *" name="email" id="email" value="">
-     </div>
-	
-	 <div id="address" class="form-group" style="visibility:hidden">
-     <input type="text"  class="required form-control" placeholder="address *" name=address id="address" value="">
      </div>
 	 
 	 <button id="send" type="submit" value="Submit" style="display: none;"> Register </button>
