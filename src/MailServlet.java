@@ -43,10 +43,10 @@ public class MailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("i am here");
+		
 		HttpSession session = request.getSession();
 		String action =request.getParameter("action");
-		System.out.println(action);
+		//System.out.println(action);
 		Harrisonuser user= (Harrisonuser) session.getAttribute("user");
 		
 		
@@ -65,8 +65,9 @@ public class MailServlet extends HttpServlet {
 			 for(Harrisonclass s : lectures) {
 	            System.out.println(s.getClassroom());
 	            body +=s.getClassroom();
+	           
 	            System.out.println(s.getSchedule());
-	            body +=s.getSchedule();
+	            body += "\n"+s.getSchedule();
 	        }
 			 
 			boolean isBodyHTML=false;

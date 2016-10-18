@@ -11,7 +11,7 @@
 <jsp:include page="Header.jsp"></jsp:include>
 <body>
 
-<form action ="StudentRoster.jsp" method ="post">
+<form action ="InstructorView.jsp" method ="post">
 <table class="table table-bordered">
     <thead>
         <tr><th>StudentID</th><th>Grade</th></tr>
