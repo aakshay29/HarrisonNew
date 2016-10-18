@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,7 +61,7 @@ public class HomeServlet extends HttpServlet {
 			ManageEnrollment.delete(enrollment);		
 			nextURL = "/HomeStudent.jsp";
 		}
-		if(action.equalsIgnoreCase("enroll")){
+		else if(action.equalsIgnoreCase("enroll")){
 			System.out.println("Enroll......");
 			int classid = Integer.parseInt(request.getParameter("classid"));	
 			Harrisonenrollment en = new Harrisonenrollment();
@@ -70,6 +71,16 @@ public class HomeServlet extends HttpServlet {
 			ManageEnrollment.insert(en);
 			nextURL = "/HomeStudent.jsp";
 		}
+		else if(action.equalsIgnoreCase("Transcript")){
+			System.out.println("Transcript......");
+			List <Harrisonenrollment> enrollmentlist2 = student.getHarrisonenrollments();
+			try {
+				JavaMail.sendMail("aakshay@gmail.com", "aakshay@gmail.com", "Transcripts", enrollmentlist2.toString(), true);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+			nextURL = "/HomeStudent.jsp";
+		}		
 		List <Harrisonenrollment> enrollmentlist = student.getHarrisonenrollments();
 		session.setAttribute("enrollmentlist", enrollmentlist);
 		response.sendRedirect(request.getContextPath() + nextURL);
