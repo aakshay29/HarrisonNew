@@ -14,12 +14,12 @@
   	<div class="container">
   		<h3>Register</h3>
   		<p class="description">
-      Update Instructor
+          Update Student
         </p>
         <div class="breadcrumb1">
             <ul>
                 <li class="icon6"><a href="index.html">Home</a></li>
-                <li class="current-page">Update Instructor</li>
+                <li class="current-page">Update Student</li>
             </ul>
         </div>
   	</div>
@@ -41,11 +41,11 @@
                     
                <input type="text"  class="required form-control" placeholder="Email *" name="email" id="email" value="<%= user.getEmail()%>">               
                      
-              <input type="password" class="required form-control" placeholder="Password *" name="password" id="password" value="<%= user.getPassword()%>">
+              <input type=text" class="required form-control" placeholder="Password *" name="password" id="password" value="<%= user.getPassword()%>">
                             
-              <input type="text"  class="required form-control" placeholder="Department" name="department" id="department" value="<%= user.getHarrisoninstructors().get(0).getDepartment()%>">
+              <input type="text"  class="required form-control" placeholder="major" name="department" id="major" value="<%= user.getHarrisonstudents().get(0).getMajor()%>">
         
-              <input type="text"  class="required form-control" placeholder="1 to 10 only" name="officenumber" id="officenumber" value="<%= user.getHarrisoninstructors().get(0).getOfficenumber()%>">
+              <input type="text"  class="required form-control" placeholder="year" name="year" id="year" value="<%= user.getHarrisonstudents().get(0).getYearofentry()%>">
 
 
 <jsp:include page="Footer.jsp"></jsp:include>
