@@ -17,23 +17,15 @@ public class DbTestEnrollment {
 	@Test
 	public void test() {
 
-		List<Harrisonenrollment> harrisonenrollments;
-		for (int i = 1; i < 100; i++) {
-			Harrisoninstructor harrisoninstructor = ManageInstructor.getInstructor(i);
-			if (harrisoninstructor != null) {
-				System.out.println("Instructor-->" + harrisoninstructor.getInstructorid());
-				harrisonenrollments = ManageEnrollment.enrollmentByInstructor(harrisoninstructor, "Fall2016");
-				for (Harrisonenrollment harrisonenrollment : harrisonenrollments) {
-
-					System.out.println(harrisonenrollment.getGrade());
-				}
-			}
-		}
-		System.out.println("-----------------");
-		 
-		Harrisonstudent harrisonstudent = ManageStudent.getStudent(105);
-		Harrisonclass harrisonclass = ManageClass.getClass(281);
-		System.out.println("---->>>"+ ManageEnrollment.enrollmentByStudentClass(harrisonstudent, harrisonclass).getEnrollmentid());
+		Harrisonstudent harrisonstudent = ManageStudent.getStudent(164);
+		Harrisonclass harrisonclass = ManageClass.getClass(280);
+		System.out.println("---->>>"+ ManageEnrollment.gradeByStudentCoursename(harrisonstudent, "business"));
+//		String s = ""; 
+//		s= ManageEnrollment.gradeByStudentCoursename(harrisonstudent, "das");
+//		System.out.println("------"+s);
+//		if(s==null){
+//			System.out.println("null");
+//		}
 	}
 
 }

@@ -138,6 +138,26 @@ public class ManageEnrollment {
 
 	}
 	
+	public static String gradeByStudentCoursename(Harrisonstudent harrisonstudent, String coursename) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select e from Harrisonenrollment e where Lower(e.harrisonclass.harrisoncourse.coursename) = Lower(:coursename) and e.harrisonstudent = :harrisonstudent";
+		TypedQuery<Harrisonenrollment> q = em.createQuery(qString, Harrisonenrollment.class);
+		q.setParameter("harrisonstudent", harrisonstudent);
+		q.setParameter("coursename", coursename);
+		Harrisonenrollment enrollment = null;
+		String grade = null;
+		try {
+			enrollment = q.getSingleResult();
+			grade = enrollment.getGrade();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return grade;
+
+	}
+	
 	public static List<Harrisonenrollment> EnrollmentsBYInstuctorSemester(Harrisoninstructor harrisoninstructor, String semester) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "Select e from Harrisonenrollment e where e.harrisonclass in (select c from Harrisonclass c where c.harrisoninstructor = :harrisoninstructor and c.semester = :semester)";
