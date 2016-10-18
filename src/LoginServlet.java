@@ -71,9 +71,13 @@ public class LoginServlet extends HttpServlet {
 			BigDecimal three = new BigDecimal(3);
 			int role = user.getRole().intValue();
 			System.out.println("rollee: " + Integer.parseInt(user.getRole().toString()));
+			
 			if(role == 1){
-				System.out.println("one aa");
-				nextURL="/Login.jsp";
+				System.out.println("*********one*********");
+				Harrisonuser admin = ManageUser.getUserByEmail(user.getEmail());
+				session.setAttribute("admin", admin);
+				session.setAttribute("enrollmentlist", enrollmentlist);
+				nextURL="/admin.jsp";
 			}
 			else if(role == 2){
 				System.out.println("two");

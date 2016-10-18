@@ -35,7 +35,9 @@
 
 			<center>
 			
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+				<p>
+					
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 					Praesent vestibulum molestie lacus. Aenean nonummy hen drerit
 					mauris. Phasellus porta. Fusce suscipit varius mi Lorem ipsum dolor
 					sit amet, consectetuer adipiscing elit. Praesent vestibulum
@@ -50,7 +52,9 @@
 					mauris. Phasellus porta. Fusce suscipit varius mi Lorem ipsum dolor
 					sit amet, consectetuer adipiscing elit. Praesent vestibulum
 					molestie lacus. Aenean nonummy hen drerit mauris. Phasellus porta.
-					Fusce suscipit varius mi</p>
+					Fusce suscipit varius mi
+					
+				</p>
 
 			</center>
 

@@ -46,30 +46,48 @@ function addcourse()
   	</div>
   </div>
     <!-- //banner -->
-    
-    
-    
-     <form action ="DeleteCourse" method="post">
-     <table>
- 	
- 	<c:forEach var="class" items="${classes}">
-      <tr><td>Class Name</td><td>Description</td></tr>
-    <tr>
-	<td><input type ="hidden" name ="classid" id="classid" value="${enrollmentlist.harrisonclass.classid}" /></td>
-	<td><c:out value="${classes.harrisonclass.harrisoncourse.name}"/></td>
-	<td><c:out value="${classes.harrisonclass.harrisoncourse.description}"/></td>
-	
-	
-	<td><input type="submit" value="Drop" id="drop" name="action"/> </td>
-	 </tr>
-	</c:forEach> 
-	 </table>	
-	</form>    
-    
-    
-    	
-	 <!-- //Adding courses -->
-	<form action ="AddNewCourse" method="post">
+
+
+
+	<table>
+
+
+		<tr>
+			<td>Class Name</td>
+			<td>Description</td>
+			<td>Available</td>
+		</tr>
+
+		<c:forEach var="classList" items="${classList}">
+			<tr>
+				<td><c:out value="${classList.harrisoncourse.coursename}" /></td>
+				<td><c:out
+						value="${classList.harrisoncourse.coursedescription}" /></td>
+				<td><c:out value="${classList.harrisoncourse.available}" /></td>
+
+
+				<td>
+
+					<form action="DeleteCourse" method="post">
+
+						<input type="hidden" name="classid" id="classid"
+							value="${classList.classid}" /> <input type="hidden"
+							value="delete" name="action" /> <input type="submit" value="delete"
+							id="delete" name="action" />
+
+					</form>
+
+				</td>
+			</tr>
+
+		</c:forEach>
+	</table>
+
+
+
+
+	<!-- //Adding courses -->
+	 <center>
 	 <div>
 	 <input type="submit" value="Add Courses" id="addcourse" name="addcourse" onclick="javascript:addcourse();"/>
 	 </div>
@@ -95,24 +113,62 @@ function addcourse()
      <input type="text"  class="required form-control" placeholder="available  *" name="available" id="available" value="">
      </div>
      
+     <form action ="AddNewCourse" method="post">
+     
 	 <button id="submit" type="submit" value="Submit" style="display: none;"> Submit </button>
     
     </form>
 
-	<form>
+	<!-- // Ended Adding courses -->
+
+
+	<!-- //Updating -->
 		<div>
 			<input type="submit" value="Update User" id="update" name="update"
 				onclick="javascript:update();" />
 		</div>
 		
-		<div id="usertable" class="form-group" style="visibility:hidden"></div>
+		<div id="usertable" class="form-group" style="visibility:hidden">
+
+		<table>
+		<tr>
+					<td>User id</td>
+					<td>Name</td>
+					<td>Email</td>
+					<td>Password</td>
+					<td>Role</td>
+		</tr>
+
+		<c:forEach var="userList" items="${userList}">
+			<tr>
+				<td><c:out value="${userList.userid}" /></td>
+				<td><c:out value="${userList.name}" /></td>
+				<td><c:out value="${userList.email}" /></td>
+				<td><c:out value="${userList.password}" /></td>
+				<td><c:out value="${userList.role}" /></td>
+	
+				<td>
+
+					<form action="UpdateServlet" method="post">
+
+						<input type="hidden" name="classid" id="classid" value="${userList.userid}" /> 
+						<input type="hidden" value="update" name="action" />
+						<input type="submit" value="update" id="update" name="action" />
+
+					</form>
+
+				</td>
+			</tr>
+
+		</c:forEach>
+	</table>
+	</div>
+
+	<!-- //End Update-->
 
 
 
-
-
-	</form>
-
+	</center>
 	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>
