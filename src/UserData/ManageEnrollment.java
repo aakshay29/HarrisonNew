@@ -140,7 +140,7 @@ public class ManageEnrollment {
 	
 	public static String gradeByStudentCoursename(Harrisonstudent harrisonstudent, String coursename) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select e from Harrisonenrollment e where e.harrisonclass.harrisoncourse.coursename = :coursename and e.harrisonstudent = :harrisonstudent";
+		String qString = "Select e from Harrisonenrollment e where Lower(e.harrisonclass.harrisoncourse.coursename) = Lower(:coursename) and e.harrisonstudent = :harrisonstudent";
 		TypedQuery<Harrisonenrollment> q = em.createQuery(qString, Harrisonenrollment.class);
 		q.setParameter("harrisonstudent", harrisonstudent);
 		q.setParameter("coursename", coursename);
