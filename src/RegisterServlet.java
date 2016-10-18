@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
 		Harrisonuser newuser=new Harrisonuser();
 		
 		if(role.equalsIgnoreCase("student")){
-			BigDecimal student= new BigDecimal(1);
+			BigDecimal student= new BigDecimal(3);
 			System.out.println("studentrole: "+student);
 			
 			String major= request.getParameter("major");
@@ -108,6 +108,8 @@ public class RegisterServlet extends HttpServlet {
 			
 			
 		}
+		String nextURL="/Login.jsp";
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 }

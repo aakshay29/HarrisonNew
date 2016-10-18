@@ -17,15 +17,10 @@
   <div class="courses_banner">
   	<div class="container">
   		<h3>Course Page</h3>
-  			<%
-  			Harrisonuser user = (Harrisonuser) session.getAttribute("user");
-								
-			%>	
+ 					
+			
 				 		
-  		<p class="description">
-    	 Hi! <%= user.getName()%>, <br> You can now view all your courses and enroll in new courses
-        </p>
-        <div class="breadcrumb1">
+  		      <div class="breadcrumb1">
             <ul>
                           <li class="current-page">Home</li>
    </ul>
