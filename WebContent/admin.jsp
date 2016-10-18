@@ -148,12 +148,22 @@ function addcourse()
 				<td><c:out value="${userList.role}" /></td>
 	
 				<td>
-
 					<form action="UpdateServlet" method="post">
 
-						<input type="hidden" name="classid" id="classid" value="${userList.userid}" /> 
+						<input type="hidden" name="userid" id="userid" value="${userList.userid}" /> 
 						<input type="hidden" value="update" name="action" />
 						<input type="submit" value="update" id="update" name="action" />
+
+					</form>
+
+				</td>
+				
+					<td>
+					<form action="AdminServlet" method="post">
+
+						<input type="hidden" name="userid" id="userid" value="${userList.userid}" /> 
+						<input type="hidden" value="SwitchRole" name="action" />
+						<input type="submit" value="SwitchRole" id="SwitchRole" name="action" />
 
 					</form>
 
