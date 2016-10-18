@@ -84,19 +84,8 @@ function transcript() {
 	<form action="HomeServlet" method="post">
     	<input type="text"  class="required form-control" placeholder="Email *" name="emailAddress">
     	<input type="hidden" name="action" value="Transcript">
-    	<input id="submit" type="submit" value="Register" style="display: none;"/>
+    	<input id="submit" type="submit" value="Register"/>
 	</form>	
-	
-	 <div>
-	 <input type="submit" value="Buy A Transcript" id="transcript" name="transcript" onclick="javascript:transcript();"/>
-	 </div>
-	
-		
-	 <div id="email" class="form-group" style="visibility:hidden">
-     <input type="text"  class="required form-control" placeholder="Email *" name="email" id="email" value="">
-     </div>
-	 
-	 <button id="send" type="submit" value="Submit" style="display: none;"> Register </button>
 	
  <jsp:include page="Footer.jsp"></jsp:include>
 </body>

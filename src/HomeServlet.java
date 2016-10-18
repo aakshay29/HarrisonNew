@@ -73,9 +73,10 @@ public class HomeServlet extends HttpServlet {
 		}
 		else if(action.equalsIgnoreCase("Transcript")){
 			System.out.println("Transcript......");
+			String emailto = request.getParameter("emailAddress");	
 			List <Harrisonenrollment> enrollmentlist2 = student.getHarrisonenrollments();
 			try {
-				JavaMail.sendMail("aakshay@gmail.com", "aakshay@gmail.com", "Transcripts", enrollmentlist2.toString(), true);
+				JavaMail.sendMail(emailto, "aakshay@gmail.com", "Transcripts", enrollmentlist2.toString(), true);
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			}
