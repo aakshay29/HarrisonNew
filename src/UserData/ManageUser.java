@@ -1,6 +1,7 @@
 package UserData;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -92,6 +93,22 @@ public class ManageUser {
 			em.close();
 		}
 		return user;
+
+	}
+	
+	public static List <Harrisonuser> getUserList() {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Harrisonuser u";
+		TypedQuery<Harrisonuser> q = em.createQuery(qString, Harrisonuser.class);
+		List <Harrisonuser> userList = null;
+		try {
+			userList = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return userList;
 
 	}
 
