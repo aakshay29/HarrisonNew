@@ -108,7 +108,7 @@ public class RegisterServlet extends HttpServlet {
 			
 			
 		}
-		String nextURL="/Login.jsp";
+		String nextURL="/registerconfirm.jsp";
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 

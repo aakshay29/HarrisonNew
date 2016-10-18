@@ -36,27 +36,36 @@
 			</tbody>
 		</table>
 	</c:forEach>
-	<form action="InstructorServlet?action=StudentRoster" method="post">
+	<center>
+	<table>
+			<thead>
+				<tr>
+	<td><form action="InstructorServlet?action=StudentRoster" method="post">
 		<button id="submit" type="submit" value="Submit">
 			<font color="blue">Student Roster</font>
 		</button>
-	</form>
+	</form></td> 
 
-	<form action="InstructorServlet?action=ViewCourses" method="post">
+	<td><form action="InstructorServlet?action=ViewCourses" method="post">
 		<button id="submit" type="submit" value="Submit">
 			<font color="blue">View Courses</font>
 		</button>
-	</form>
-	<form action="InstructorServlet?action=ViewGrades" method="post">
+	</form></td>
+	
+	<td><form action="InstructorServlet?action=ViewGrades" method="post">
 		<button id="submit" type="submit" value="Submit">
 			<font color="blue">Student Grades</font>
 		</button>
-	</form>
-		<form action="InstructorServlet?action=Email" method="post">
+	</form></td>
+		
+		<td><form action="InstructorServlet?action=Email" method="post">
 		<button id="submit" type="submit" value="Submit">
 			<font color="blue">Email My Courses</font>
 		</button>
-	</form>
+	</form></td>
 	
+	
+	</table>
+	</center>
 </body>
 </html>

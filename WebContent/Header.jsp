@@ -75,6 +75,7 @@ $(document).ready(function(){
 						Harrisonuser user = (Harrisonuser) session.getAttribute("user");
 								
 						%>	
+						<li><a href=#>  Hello 	<%= user.getName()%></a></li>
 						<li class="dropdown"><a href="HomeServlet?logout=yes"><i	class="fa fa-user"></i><span>Logout</span></a></li>
 					
 					</c:if>
