@@ -35,6 +35,7 @@
 		    <div class="form-group">
 			    <input autocomplete="off" type="text" name="email" id="email" class="required form-control" placeholder="Email">
 		    </div>
+		    
 		    <div class="form-group">
 			    <input autocomplete="off" type="password" class="password required form-control" placeholder="Password" name="password" name="id">
 		    </div>

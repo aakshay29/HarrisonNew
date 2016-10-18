@@ -52,6 +52,15 @@
    <td>Available</td>
    
    </tr>
+<<<<<<< HEAD
+
+
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.coursename}"/></td>
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.coursedescription}"/></td>
+	<td><c:out value="${classList.harrisonclass.classroom}"/></td>
+	<td><c:out value="${classList.harrisonclass.schedule}"/></td>
+	<td><c:out value="${classList.harrisonclass.harrisoncourse.available}"/></td>
+=======
 <c:forEach var="classList" items="${classList}">
 <tr>
 	<td><c:out value="${classList.harrisoncourse.coursename}"/></td>
@@ -59,6 +68,7 @@
 	<td><c:out value="${classList.classroom}"/></td>
 	<td><c:out value="${classList.schedule}"/></td>
 	<td><c:out value="${classList.harrisoncourse.available}"/></td>
+>>>>>>> b8a7376eae3c6aa0be5dee3d5d927c51c2ea4426
 	 
 	 <td> 
 	 <form action ="HomeServlet" method="post">
