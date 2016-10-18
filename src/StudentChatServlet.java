@@ -1,6 +1,5 @@
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import UserData.ManageEnrollment;
-import model.Harrisonclass;
 import model.Harrisonenrollment;
 import model.Harrisonstudent;
 import model.Harrisonuser;
@@ -82,6 +80,8 @@ public class StudentChatServlet extends HttpServlet {
 				System.out.println(e);
 				message = "Unable to mail transcript this time";
 			}
+		}else if("transcript".equalsIgnoreCase(request.getParameter("response").toString())){
+			
 		}
 		response.setContentType("text/plain");// send plain text back to browser
 		response.setCharacterEncoding("UTF-8");
