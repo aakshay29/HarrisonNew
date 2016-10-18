@@ -77,7 +77,7 @@ function transcript() {
 
 
 	
-	
+	 <jsp:include page="Chat.jsp"></jsp:include>
 	
 	 <!-- //Buying transcripts -->
 	
