@@ -105,18 +105,7 @@ function addcourse()
 				onclick="javascript:update();" />
 		</div>
 		
-		<div id="usertable" class="form-group" style="visibility:hidden">
-
-
-		
-
-
-
-		
-		
-		
-		
-		</div>
+		<div id="usertable" class="form-group" style="visibility:hidden"></div>
 
 
 

@@ -74,14 +74,14 @@ public class MailServlet extends HttpServlet {
 			
 				try {
 					
-					JavaMail.sendMail(to, from, subject, body, isBodyHTML);
+					JavaMail.sendMail(to, from, subject, body, isBodyHTML);	
 					System.out.println(body);
 				} catch (javax.mail.MessagingException e) {
 					// TODO Auto-generated catch block
 					String errorMessage="Error: Unable to send message";
 				}
 				
-				String nextURL="/OrderConfirmation.jsp";
+				String nextURL="/InstructorView.jsp";
 				response.sendRedirect(request.getContextPath() + nextURL);
 				
 		}

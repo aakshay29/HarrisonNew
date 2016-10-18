@@ -42,10 +42,7 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		HttpSession session = request.getSession();
-		Harrisonstudent student = (Harrisonstudent) session.getAttribute("student");
-		List <Harrisonenrollment> enrollmentlist = student.getHarrisonenrollments();
-		session.setAttribute("enrollmentlist", enrollmentlist);
+		
 	}
 
 	/**
@@ -71,7 +68,10 @@ public class HomeServlet extends HttpServlet {
 			en.setHarrisonstudent(student);
 			en.setStatus(ManageClass.getClass(classid).getStatus());
 			ManageEnrollment.insert(en);
+			nextURL = "/HomeStudent.jsp";
 		}
+		List <Harrisonenrollment> enrollmentlist = student.getHarrisonenrollments();
+		session.setAttribute("enrollmentlist", enrollmentlist);
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 

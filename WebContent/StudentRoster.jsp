@@ -9,6 +9,7 @@
 <title>Student Roster</title>
 </head>
 <body>
+<jsp:include page="Header.jsp"></jsp:include>
 
 	<c:forEach var="studentenrollment" items="${studentenrollments}">
 		<form action="InstructorServlet?action=AssignGrade" method="post">

@@ -9,30 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Instructor View</title>
 </head>
+<jsp:include page="Header.jsp"></jsp:include>
 <body>
-
-	<form action="InstructorServlet?action=StudentRoster" method="post">
-		<button id="submit" type="submit" value="Submit">
-			<font color="blue">Student Roster</font>
-		</button>
-	</form>
-
-	<form action="InstructorServlet?action=ViewCourses" method="post">
-		<button id="submit" type="submit" value="Submit">
-			<font color="blue">View Courses</font>
-		</button>
-	</form>
-	<form action="InstructorServlet?action=ViewGrades" method="post">
-		<button id="submit" type="submit" value="Submit">
-			<font color="blue">Student Grades</font>
-		</button>
-	</form>
-		<form action="InstructorServlet?action=Email" method="post">
-		<button id="submit" type="submit" value="Submit">
-			<font color="blue">Email My Courses</font>
-		</button>
-	</form>
-	<c:forEach var="lecture" items="${lectures}">
+<c:forEach var="lecture" items="${lectures}">
 		<table class="table table-bordered table-striped table-hover"
 			id="myTable">
 			<thead>
@@ -57,5 +36,27 @@
 			</tbody>
 		</table>
 	</c:forEach>
+	<form action="InstructorServlet?action=StudentRoster" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">Student Roster</font>
+		</button>
+	</form>
+
+	<form action="InstructorServlet?action=ViewCourses" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">View Courses</font>
+		</button>
+	</form>
+	<form action="InstructorServlet?action=ViewGrades" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">Student Grades</font>
+		</button>
+	</form>
+		<form action="InstructorServlet?action=Email" method="post">
+		<button id="submit" type="submit" value="Submit">
+			<font color="blue">Email My Courses</font>
+		</button>
+	</form>
+	
 </body>
 </html>

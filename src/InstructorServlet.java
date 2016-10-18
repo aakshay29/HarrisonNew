@@ -107,6 +107,10 @@ public class InstructorServlet extends HttpServlet {
 			session.setAttribute("enrollments", enrollments);
 			nextURL = "/ViewGrades.jsp";
 		}
+		else if (action.equalsIgnoreCase("Email")) {
+			
+			nextURL = "/MailServlet";
+		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
