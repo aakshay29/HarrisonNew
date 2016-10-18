@@ -67,21 +67,22 @@ public class AdminServlet extends HttpServlet {
 			if(role == 2){
 				Harrisoninstructor instructor = ManageInstructor.getInstructor(user);	
 				ManageInstructor.delete(instructor);
-				Harrisonstudent student = null;
+				Harrisonstudent student = new Harrisonstudent();
 				session.setAttribute("student", student);
 				nextURL="/UpdateStudent.jsp";
 			}
 			else if(role == 3){
 				Harrisonstudent student = ManageStudent.getStudentFromUserid(user);
 				ManageStudent.delete(student);
-				Harrisoninstructor instructor = null;
+				Harrisoninstructor instructor = new Harrisoninstructor();
 				session.setAttribute("instructor", instructor);
 				nextURL="/UpdateInstructor.jsp";
 			}
 		}
 		else if(action.equalsIgnoreCase("updateInstructor")){
-			String department = "";
-			BigDecimal officenumber = null;
+			String department = request.getParameter("department");
+			String officenumberString = request.getParameter("officenumber");
+			BigDecimal officenumber = new BigDecimal(officenumberString);
 			Harrisoninstructor instructor = new Harrisoninstructor();
 			instructor.setDepartment(department);
 			instructor.setHarrisonuser(user);
@@ -110,8 +111,9 @@ public class AdminServlet extends HttpServlet {
 			nextURL="/admin.jsp";
 		}
 		else if(action.equalsIgnoreCase("switchToInstructor")){
-			String department = "";
-			BigDecimal officenumber = null;
+			String department = request.getParameter("department");
+			String officenumberString = request.getParameter("officenumber");
+			BigDecimal officenumber = new BigDecimal(officenumberString);
 			Harrisoninstructor instructor = new Harrisoninstructor();
 			instructor.setDepartment(department);
 			instructor.setHarrisonuser(user);
