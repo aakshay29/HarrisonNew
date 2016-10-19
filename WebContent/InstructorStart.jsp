@@ -6,20 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Semester Selection</title>
 </head>
-<body><center>
-<br><br><br><br><br><br>
-	<h4>Select a semester</h4>
-	<form action="InstructorServlet" method="get">
-		<label for="semester">Rating</label> <select name="id"
-			id="id">
-			<option selected="selected">Fall2016</option>
-			<option>Spring2016</option>
-		</select>
+<body>
+	<center>
 		<br>
-		<button id="submit" type="submit" value="Submit">
-			<font color="blue">Go</font>
-		</button>
-	</form>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h4>Select a semester</h4>
+		<form action="InstructorServlet" method="get">
+			<select name="id" id="id">
+				<option selected="selected">Fall2016</option>
+				<option>Spring2016</option>
+			</select> <br>
+			<button id="submit" type="submit" value="Submit">
+				<font color="blue">Go</font>
+			</button>
+		</form>
 	</center>
 </body>
 </html>

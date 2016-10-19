@@ -20,22 +20,21 @@
 </script>
 </head>
 <body>
-<div id="chat">
-<table align="center">
-<tr><th>
-	<h3>Chat with us</h3>
+	<center>
 
-	<form id="form1" name="form1" action="StudentChatServlet" method="get">
-		<div id="message">Would you like to ask a question?</div>
-		  </br><input type="text" id="response"
-			name="response" /><br /> <br/><input type="button" id="submit"
-			value="submit" />
-	</form>
-	<p />
 
-</th>
-</tr>
-</table>
-</div>
+		<h3>Chat with us</h3>
+
+		<form id="form1" name="form1" action="StudentChatServlet" method="get">
+			<div id="message">Would you like to ask a question?</div>
+			
+			</br>
+			<input type="text" id="response" name="response" /><br /> <br />
+			<input type="button" id="submit" value="submit" />
+		</form>
+		<p/>
+
+
+	</center>
 </body>
 </html>
