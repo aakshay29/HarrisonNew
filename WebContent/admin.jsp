@@ -22,6 +22,12 @@ function addcourse()
 	$('#submit').show();
 }
 
+function update()
+{
+	document.getElementById('usertable').style.visibility = 'visible'
+}
+
+
 </script>
 
 
