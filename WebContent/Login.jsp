@@ -32,7 +32,7 @@
 	   	 
 	   	  <form class="login"  action ="LoginServlet" method="post">
 	    	<p class="lead">Welcome Back!</p>
-		    <div class="form-group">
+		    <div class="form-group"> 
 			    <input autocomplete="off" type="text" name="email" id="email" class="required form-control" placeholder="Email">
 		    </div>
 		    
