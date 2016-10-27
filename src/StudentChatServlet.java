@@ -1,6 +1,5 @@
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import UserData.ManageEnrollment;
-import model.Harrisonclass;
 import model.Harrisonenrollment;
 import model.Harrisonstudent;
 import model.Harrisonuser;
@@ -45,7 +43,9 @@ public class StudentChatServlet extends HttpServlet {
 
 		} else if ("schedule".equalsIgnoreCase(request.getParameter("response").toString())) {
 			for (Harrisonenrollment enrollment : student.getHarrisonenrollments()) {
-				message = enrollment.getHarrisonclass().getSchedule() + "\n";
+				message =message+" | \n"+enrollment.getHarrisonclass().getSchedule() +"  -  "
+						+ enrollment.getHarrisonclass().getHarrisoncourse().getCoursename()
+						+" | \n";
 			}
 		} else if ("grade".equalsIgnoreCase(request.getParameter("response").toString())) {
 			message = "Which class do you want the grade for? (Grade coursename)";
@@ -82,8 +82,12 @@ public class StudentChatServlet extends HttpServlet {
 				System.out.println(e);
 				message = "Unable to mail transcript this time";
 			}
+		}else if("no".equalsIgnoreCase(request.getParameter("response").toString())){
+			message = "Alright, Just type 'yes' when you have one.";
+		}else{
+			message = "Unrecognised input";
 		}
-		response.setContentType("text/plain");// send plain text back to browser
+		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(message);
 	}
